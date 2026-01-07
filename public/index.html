@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collede | Enterprise AI Gateway</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script
+      async
+      crossorigin="anonymous"
+      data-clerk-publishable-key="pk_test_YXJyaXZpbmctYXNwLTIuY2xlcmsuYWNjb3VudHMuZGV2JA"
+      src="https://arriving-asp-2.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+      type="text/javascript"
+    ></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #09090b; color: #fafafa; }
+        .nav-link { color: #a1a1aa; transition: color 0.2s; }
+        .nav-link:hover { color: #ffffff; }
+        .btn-primary { background-color: #ffffff; color: #000000; transition: all 0.2s; }
+        .btn-primary:hover { background-color: #e4e4e7; transform: translateY(-1px); }
+        .btn-secondary { background-color: #18181b; border: 1px solid #27272a; color: #fafafa; transition: all 0.2s; }
+        .btn-secondary:hover { background-color: #27272a; border-color: #3f3f46; }
+        .card { background-color: #09090b; border: 1px solid #18181b; border-radius: 0.75rem; transition: border-color 0.2s; }
+        .card:hover { border-color: #27272a; }
+        .playground-card { background-color: #09090b; border: 1px solid #27272a; border-radius: 1rem; overflow: hidden; }
+        .chat-msg-user { background-color: #18181b; border: 1px solid #27272a; }
+        .chat-msg-ai { background-color: #09090b; border: 1px solid #18181b; }
+        #auth-overlay { background-color: rgba(9, 9, 11, 0.8); backdrop-blur: 4px; }
+    </style>
+</head>
+<body class="selection:bg-indigo-500/30">
+    <nav class="border-b border-zinc-800 bg-zinc-950/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-8">
+                <a href="/" class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    <span class="text-lg font-bold tracking-tight">Collede</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/models" class="text-sm font-medium nav-link">Models</a>
+                    <a href="/docs" class="text-sm font-medium nav-link">Documentation</a>
+                    <a id="admin-link" href="/admin" class="text-sm font-medium nav-link hidden">Admin Portal</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div id="auth-buttons" class="hidden flex items-center space-x-3">
+                    <button onclick="Clerk.openSignIn()" class="text-sm font-medium nav-link">Sign In</button>
+                    <button onclick="Clerk.openSignUp()" class="text-sm font-medium btn-primary px-4 py-2 rounded-lg">Get Started</button>
+                </div>
+                <div id="user-button"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-24 px-6 relative overflow-hidden">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
+                <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/10 blur-[120px] rounded-full"></div>
+                <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full"></div>
+            </div>
+            
+            <div class="container mx-auto text-center relative z-10">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-zinc-800 bg-zinc-900/50 text-xs font-medium text-zinc-400 mb-8">
+                    <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+                    <span>Now in Public Beta</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-[1.1]">
+                    The Enterprise <br/><span class="text-indigo-500">AI Gateway</span>
+                </h1>
+                <p class="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                    A unified, OpenAI-compatible proxy for all your LLM needs. Manage models, control access, and monitor usage from a single dashboard.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button onclick="Clerk.openSignUp()" class="btn-primary px-8 py-3 rounded-xl font-semibold text-base w-full sm:w-auto shadow-lg shadow-white/5">Start Building Free</button>
+                    <a href="/docs" class="btn-secondary px-8 py-3 rounded-xl font-semibold text-base w-full sm:w-auto">View API Reference</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="py-24 border-t border-zinc-900 bg-zinc-950/20">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card p-8">
+                        <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6 border border-indigo-500/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><path d="M12 2v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="M2 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="M12 22v-4"/><path d="m19.07 19.07-2.83-2.83"/><path d="M22 12h-4"/><path d="m19.07 4.93-2.83 2.83"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Unified API</h3>
+                        <p class="text-zinc-500 leading-relaxed">Swap providers without changing a single line of your application code. 100% OpenAI compatible.</p>
+                    </div>
+                    <div class="card p-8">
+                        <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6 border border-indigo-500/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Granular Access</h3>
+                        <p class="text-zinc-500 leading-relaxed">Secure your API keys and manage model permissions for different environments or team members.</p>
+                    </div>
+                    <div class="card p-8">
+                        <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6 border border-indigo-500/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Model Management</h3>
+                        <p class="text-zinc-500 leading-relaxed">Toggle models on and off with one click. Automatically sync with upstream providers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Playground -->
+        <section class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold mb-4">Interactive Playground</h2>
+                    <p class="text-zinc-500">Test your gateway configuration in real-time before deploying.</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto playground-card relative group">
+                    <!-- Auth Overlay -->
+                    <div id="auth-overlay" class="absolute inset-0 z-40 flex flex-col items-center justify-center space-y-6 text-center px-6">
+                        <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-400"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold">Sign in to test playground</h3>
+                        <p class="text-zinc-500 max-w-xs">You need to be logged in to use the gateway playground and test your active models.</p>
+                        <button onclick="Clerk.openSignIn()" class="btn-primary px-6 py-2 rounded-lg font-medium">Sign In Now</button>
+                    </div>
+
+                    <div class="border-b border-zinc-800 bg-zinc-900/50 p-4 flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50"></div>
+                            <span class="ml-4 text-xs font-mono text-zinc-500">v1 / Chat Playground</span>
+                        </div>
+                        <select id="modelSelect" class="bg-zinc-950 border border-zinc-800 rounded px-3 py-1.5 text-xs outline-none focus:border-indigo-500 transition text-zinc-300">
+                            <option value="">Loading models...</option>
+                        </select>
+                    </div>
+
+                    <div id="chatHistory" class="h-[400px] overflow-y-auto p-6 space-y-4 bg-[#09090b]">
+                        <div class="flex justify-start">
+                            <div class="chat-msg-ai rounded-2xl rounded-tl-none p-4 max-w-[85%]">
+                                <p class="text-xs font-bold text-indigo-500 uppercase mb-1 tracking-wider">Assistant</p>
+                                <p class="text-sm text-zinc-300">Welcome to the Collede Playground. Once configured, you can test any active model here.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 border-t border-zinc-800 bg-zinc-900/30">
+                        <form id="chatForm" class="flex items-center space-x-3">
+                            <input type="text" id="chatInput" placeholder="Type a message..." 
+                                class="flex-1 bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 transition">
+                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-500 text-white p-3 rounded-xl transition shadow-lg shadow-indigo-900/20">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 border-t border-zinc-900">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-zinc-500 text-sm">
+            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                <span class="font-bold text-white">Collede</span>
+                <span>&copy; 2026. All rights reserved.</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="#" class="hover:text-white transition">Privacy</a>
+                <a href="#" class="hover:text-white transition">Terms</a>
+                <a href="https://github.com" class="hover:text-white transition">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const ADMIN_EMAIL = 'keyamuha@gmail.com';
+
+        window.addEventListener('load', async function () {
+            await Clerk.load();
+
+            const userButtonDiv = document.getElementById('user-button');
+            const authButtons = document.getElementById('auth-buttons');
+            const authOverlay = document.getElementById('auth-overlay');
+            const adminLink = document.getElementById('admin-link');
+
+            if (Clerk.user) {
+                Clerk.mountUserButton(userButtonDiv);
+                authButtons.classList.add('hidden');
+                authOverlay.classList.add('hidden');
+                
+                // Show admin link if user is admin
+                const email = Clerk.user.primaryEmailAddress.emailAddress;
+                if (email === ADMIN_EMAIL) {
+                    adminLink.classList.remove('hidden');
+                }
+                
+                initPlayground();
+            } else {
+                authButtons.classList.remove('hidden');
+                authOverlay.classList.remove('hidden');
+            }
+
+            function initPlayground() {
+                const modelSelect = document.getElementById('modelSelect');
+                const chatForm = document.getElementById('chatForm');
+                const chatInput = document.getElementById('chatInput');
+                const chatHistory = document.getElementById('chatHistory');
+
+                async function fetchModels() {
+                    try {
+                        const token = await Clerk.session.getToken();
+                        const response = await fetch('/v1/models', {
+                            headers: { 'Authorization': `Bearer ${token}` }
+                        });
+                        const data = await response.json();
+                        const models = data.data || [];
+                        
+                        modelSelect.innerHTML = models.length 
+                            ? models.map(m => `<option value="${m.id}">${m.id}</option>`).join('')
+                            : '<option value="">No models active</option>';
+                    } catch (e) {
+                        modelSelect.innerHTML = '<option value="">Error loading</option>';
+                    }
+                }
+
+                function appendMessage(role, content) {
+                    const div = document.createElement('div');
+                    div.className = `flex ${role === 'user' ? 'justify-end' : 'justify-start'}`;
+                    div.innerHTML = `
+                        <div class="${role === 'user' ? 'chat-msg-user' : 'chat-msg-ai'} rounded-2xl p-4 max-w-[85%]">
+                            <p class="text-[10px] font-bold ${role === 'user' ? 'text-zinc-400' : 'text-indigo-500'} uppercase mb-1 tracking-wider">${role === 'user' ? 'You' : 'Assistant'}</p>
+                            <p class="text-sm text-zinc-300">${content}</p>
+                        </div>
+                    `;
+                    chatHistory.appendChild(div);
+                    chatHistory.scrollTop = chatHistory.scrollHeight;
+                }
+
+                chatForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const text = chatInput.value.trim();
+                    const model = modelSelect.value;
+                    if (!text || !model) return;
+
+                    appendMessage('user', text);
+                    chatInput.value = '';
+
+                    try {
+                        const token = await Clerk.session.getToken();
+                        const response = await fetch('/v1/chat/completions', {
+                            method: 'POST',
+                            headers: { 
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            },
+                            body: JSON.stringify({
+                                model: model,
+                                messages: [{ role: 'user', content: text }]
+                            })
+                        });
+
+                        const result = await response.json();
+                        if (result.choices && result.choices[0]) {
+                            appendMessage('assistant', result.choices[0].message.content);
+                        } else {
+                            appendMessage('assistant', 'Error: ' + (result.error?.message || 'Could not reach provider.'));
+                        }
+                    } catch (error) {
+                        appendMessage('assistant', 'Network Error: Failed to connect to gateway.');
+                    }
+                });
+
+                fetchModels();
+            }
+        });
+    </script>
+</body>
+</html>
