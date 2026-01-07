@@ -59,6 +59,7 @@
                         <a href="#introduction" class="sidebar-link active">Introduction</a>
                         <a href="#authentication" class="sidebar-link">Authentication</a>
                         <a href="#base-url" class="sidebar-link">Base URL</a>
+                        <a href="#limits" class="sidebar-link">Rate Limits</a>
                     </div>
                 </div>
                 <div>
@@ -113,7 +114,26 @@
                 <p class="text-zinc-400 mb-6 leading-relaxed">
                     All API requests should be directed to the following base URL:
                 </p>
-                <pre><code><span class="token-string">https://your-collede-instance.com/v1</span></code></pre>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-8">
+                    <code class="text-indigo-400">https://your-collede-instance.com/v1</code>
+                </div>
+            </section>
+
+            <section id="limits" class="doc-section mb-20">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 mr-3"><path d="M12 2v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="M2 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="M12 22v-4"/><path d="m19.07 19.07-2.83-2.83"/><path d="M22 12h-4"/><path d="m19.07 4.93-2.83 2.83"/></svg>
+                    Rate Limits
+                </h2>
+                <p class="text-zinc-400 mb-6 leading-relaxed">
+                    To ensure fair usage and system stability, the gateway enforces a daily request limit per user.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="card p-6 border border-zinc-800 bg-zinc-900/50">
+                        <h4 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-2">Requests Per Day (RPD)</h4>
+                        <p class="text-2xl font-black text-white">13,000</p>
+                        <p class="text-xs text-zinc-500 mt-2">Resets daily at 00:00 UTC</p>
+                    </div>
+                </div>
             </section>
 
             <section id="chat-completions" class="doc-section mb-20">

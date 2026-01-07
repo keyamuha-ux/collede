@@ -1,11 +1,24 @@
 const axios = require('axios');
 const { getConfig } = require('./config');
+const { checkAndIncrementUsage } = require('./usage');
 
 async function chatHandler(req, res) {
   try {
     const userId = req.auth?.userId;
     if (!userId) {
       return res.status(401).json({ error: 'Unauthorized. Please sign in.' });
+    }
+
+    // Check RPD Limit (13,000)
+    const usage = await checkAndIncrementUsage(userId);
+    if (!usage.allowed) {
+      return res.status(429).json({
+        error: {
+          message: `Rate limit exceeded. Your daily limit is ${usage.limit} requests.`,
+          type: 'rate_limit_error',
+          code: 'daily_limit_reached'
+        }
+      });
     }
 
     // Use system config set by admin
