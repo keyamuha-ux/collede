@@ -7,7 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/theme.css">
     <script
       async
       crossorigin="anonymous"
@@ -16,166 +17,142 @@
       type="text/javascript"
     ></script>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #09090b; color: #fafafa; }
+        body { background-color: var(--ddlc-cream); color: var(--ddlc-text); font-family: 'Nunito', sans-serif; }
         code, pre { font-family: 'Fira Code', monospace; }
-        .nav-link { color: #a1a1aa; transition: color 0.2s; }
-        .nav-link:hover { color: #ffffff; }
-        .sidebar-link { display: block; padding: 0.5rem 0.75rem; border-radius: 0.5rem; color: #a1a1aa; font-size: 0.875rem; transition: all 0.2s; }
-        .sidebar-link:hover { background-color: #18181b; color: #ffffff; }
-        .sidebar-link.active { background-color: #18181b; color: #ffffff; font-weight: 500; }
+        .sidebar-link { display: block; padding: 0.75rem 1rem; border-radius: 1rem; color: var(--ddlc-text-light); font-size: 0.9rem; font-weight: 600; transition: all 0.2s; }
+        .sidebar-link:hover { background-color: var(--ddlc-pink-light); color: var(--ddlc-pink-dark); }
+        .sidebar-link.active { background-color: var(--ddlc-pink); color: white; font-weight: 800; box-shadow: 0 4px 0 var(--ddlc-pink-dark); }
         .doc-section { scroll-margin-top: 6rem; }
-        pre { background-color: #09090b; border: 1px solid #18181b; border-radius: 0.75rem; padding: 1.25rem; overflow-x: auto; font-size: 0.875rem; line-height: 1.7; }
-        .token-keyword { color: #c678dd; }
-        .token-string { color: #98c379; }
-        .token-comment { color: #5c6370; font-style: italic; }
-        .token-attr { color: #d19a66; }
+        pre { background-color: #2d2d2d; border: 4px solid var(--ddlc-pink); border-radius: 1.5rem; padding: 1.5rem; overflow-x: auto; font-size: 0.875rem; line-height: 1.7; color: #f8f8f2; box-shadow: 6px 6px 0 var(--ddlc-shadow); }
+        .token-keyword { color: #ff79c6; font-weight: bold; }
+        .token-string { color: #f1fa8c; }
+        .token-comment { color: #6272a4; font-style: italic; }
+        .token-attr { color: #50fa7b; }
+        
+        .docs-container {
+            background-image: url('/docs_bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
     </style>
 </head>
-<body class="selection:bg-indigo-500/30">
-    <nav class="border-b border-zinc-800 bg-zinc-950/50 backdrop-blur-md sticky top-0 z-50">
+<body class="selection:bg-[#ffb7c5]/30">
+    <nav class="border-b-4 border-[#ffb7c5]/20 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div class="container mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-8">
-                <a href="/" class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-                    <span class="text-lg font-bold tracking-tight">Collede</span>
+                <a href="/" class="flex items-center space-x-2 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffb7c5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:animate-pulse transition-all duration-300"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    <span class="text-xl font-black tracking-tight text-[#ffb7c5]">Collede</span>
                 </a>
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="/models" class="text-sm font-medium nav-link">Models</a>
-                    <a href="/docs" class="text-sm font-medium text-white">Documentation</a>
-                    <a id="admin-link" href="/admin" class="text-sm font-medium nav-link hidden">Admin Portal</a>
+                    <a href="/dashboard" id="dashboard-link" class="text-sm font-bold nav-link hidden">Dashboard</a>
+                    <a href="/models" class="text-sm font-bold nav-link">Models</a>
+                    <a href="/docs" class="text-sm font-bold text-[#ffb7c5] underline decoration-4 underline-offset-8">Documentation</a>
+                    <a id="admin-link" href="/admin" class="text-sm font-bold nav-link hidden">Admin Portal</a>
                 </div>
             </div>
             <div id="user-button"></div>
         </div>
     </nav>
 
-    <div class="container mx-auto px-6 flex">
-        <!-- Sidebar -->
-        <aside class="hidden lg:block w-64 h-[calc(100vh-4rem)] sticky top-16 py-12 pr-8 border-r border-zinc-900 overflow-y-auto">
-            <div class="space-y-8">
-                <div>
-                    <h5 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4">Getting Started</h5>
-                    <div class="space-y-1">
-                        <a href="#introduction" class="sidebar-link active">Introduction</a>
-                        <a href="#authentication" class="sidebar-link">Authentication</a>
-                        <a href="#base-url" class="sidebar-link">Base URL</a>
-                        <a href="#limits" class="sidebar-link">Rate Limits</a>
+    <div class="docs-container min-h-screen">
+        <div class="container mx-auto px-6 flex">
+            <!-- Sidebar -->
+            <aside class="hidden lg:block w-72 h-[calc(100vh-4rem)] sticky top-16 py-12 pr-8 border-r-4 border-[#ffb7c5]/10 overflow-y-auto">
+                <div class="space-y-10">
+                    <div>
+                        <h5 class="text-xs font-black text-[#ffb7c5] uppercase tracking-widest mb-6 px-4">Club Handbook</h5>
+                        <div class="space-y-2">
+                            <a href="#introduction" class="sidebar-link active">Welcome!</a>
+                            <a href="#base-url" class="sidebar-link">Meeting Spot</a>
+                            <a href="#api-keys" class="sidebar-link">Your Secret Pen</a>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <h5 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4">Endpoints</h5>
-                    <div class="space-y-1">
-                        <a href="#chat-completions" class="sidebar-link">Chat Completions</a>
-                        <a href="#list-models" class="sidebar-link">List Models</a>
+            </aside>
+
+            <!-- Content -->
+            <main class="flex-1 py-12 lg:pl-16 max-w-4xl relative">
+                <div class="notebook-page mb-12 hand-drawn-alt shadow-2xl overflow-visible">
+                    <!-- Marginalia easter eggs -->
+                    <div class="marginalia top-32 -left-12 rotate-[-15deg] hidden xl:block">
+                        "My poem for today is just a list of API keys. It's... abstract." ⧈
+                    </div>
+                    <div class="marginalia bottom-48 -right-16 rotate-[12deg] hidden xl:block">
+                        This club is full of incredibly cute AI models！ <span class="text-[#ffb7c5]">✦</span>
+                    </div>
+                    <div class="marginalia top-[60%] -left-8 rotate-[5deg] hidden xl:block opacity-30">
+                        Can you hear me？
+                    </div>
+
+                    <section id="introduction" class="doc-section mb-24 relative">
+                        <h1 class="text-6xl font-black mb-8 tracking-tighter">The Clubroom Guidebook</h1>
+                        <p class="text-xl leading-relaxed mb-10 font-bold">
+                            Collede is your very own AI Gateway — a place where every model has a voice, and every request is a new story. <span class="marker-highlight">Think of it as a special notebook where every page leads to a new discovery！</span> <span class="text-[#ffb7c5]">⟡</span>
+                        </p>
+                        <div class="bg-[#ffb7c5]/5 border-4 border-[#ffb7c5]/20 rounded-[2rem] p-8 flex items-start shadow-xl hand-drawn relative overflow-hidden">
+                            <div class="absolute -right-4 -bottom-4 opacity-10 text-8xl text-[#ffb7c5]">✦</div>
+                            <div class="bg-white p-4 rounded-2xl shadow-inner mr-6 border-2 border-[#ffb7c5]/20">
+                                <span class="text-3xl text-[#ffb7c5]">！</span>
+                            </div>
+                            <p class="text-lg leading-relaxed font-bold italic">
+                                "The gateway acts as a secure proxy. Your secrets are safe with us, and we'll never let them slip away — I promise！"
+                            </p>
+                        </div>
+                    </section>
+
+                    <section id="base-url" class="doc-section mb-24">
+                        <h2 class="text-4xl font-black mb-8 flex items-center text-blue-500">
+                            <span class="glyph-accent mr-3 text-3xl text-blue-400">⟡</span>
+                            Our Meeting Spot
+                        </h2>
+                        <p class="text-gray-700 text-lg mb-8 leading-relaxed font-bold">
+                            This is the address for our club meetings. Point your scripts here and let the words flow. <span class="text-blue-300">✦</span>
+                        </p>
+                        <div class="bg-blue-50 border-4 border-blue-100 rounded-3xl p-10 shadow-2xl hand-drawn-alt rotate-1">
+                            <code id="base-url-display" class="text-blue-600 font-black text-2xl break-all">https://your-collede-instance.com/v1</code>
+                        </div>
+                        <p class="mt-6 text-sm text-gray-400 font-bold italic">"Just replace 'your-collede-instance.com' with our current URL！"</p>
+                    </section>
+
+                    <section id="api-keys" class="doc-section mb-24">
+                        <h2 class="text-4xl font-black mb-8 flex items-center text-purple-500">
+                            <span class="glyph-accent mr-3 text-3xl text-purple-400">🖋️</span>
+                            Your Secret Pen
+                        </h2>
+                        <p class="text-gray-700 text-lg mb-10 leading-relaxed font-bold">
+                            To write to the models, you'll need a special API key. You can generate and manage your keys right in your dashboard. <span class="marker-highlight">Keep them safe — they're your voice in the clubroom！</span>
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                            <a href="/dashboard" class="btn-primary px-10 py-4 rounded-2xl font-black text-xl shadow-xl hand-drawn text-center w-full sm:w-auto">
+                                Go to Dashboard
+                            </a>
+                            <div class="text-gray-400 font-bold text-sm italic">
+                                "Generating a key is as easy as writing a short poem！"
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Final signature motif -->
+                    <div class="mt-32 pt-16 border-t-4 border-[#ffb7c5]/20 flex flex-col items-center text-center">
+                        <div class="text-6xl mb-6 opacity-20">🖋️</div>
+                        <p class="text-[#ffb7c5] font-black text-2xl italic tracking-widest">
+                            ~ With Love, The Literature Club ~
+                        </p>
+                        <div class="flex space-x-4 mt-8 opacity-30">
+                            <span class="text-2xl">✦</span>
+                            <span class="text-2xl">⟡</span>
+                            <span class="text-2xl">⧈</span>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <h5 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4">SDK Examples</h5>
-                    <div class="space-y-1">
-                        <a href="#python-sdk" class="sidebar-link">Python (OpenAI)</a>
-                        <a href="#node-sdk" class="sidebar-link">Node.js (OpenAI)</a>
-                        <a href="#curl" class="sidebar-link">cURL</a>
-                    </div>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Content -->
-        <main class="flex-1 py-12 lg:pl-12 max-w-4xl">
-            <section id="introduction" class="doc-section mb-20">
-                <h1 class="text-4xl font-black mb-6 tracking-tight">Introduction</h1>
-                <p class="text-zinc-400 text-lg leading-relaxed mb-6">
-                    Collede is a high-performance AI Gateway designed to provide a unified interface for multiple LLM providers. It is fully compatible with the OpenAI API specification, allowing you to switch providers by simply changing your base URL.
-                </p>
-                <div class="bg-indigo-500/5 border border-indigo-500/10 rounded-xl p-6 flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 mr-4 mt-1"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                    <p class="text-zinc-400 text-sm leading-relaxed">
-                        The gateway acts as a secure proxy. Your API keys are stored safely on the Collede server and are never exposed to your client-side applications.
-                    </p>
-                </div>
-            </section>
-
-            <section id="authentication" class="doc-section mb-20">
-                <h2 class="text-2xl font-bold mb-6 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 mr-3"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                    Authentication
-                </h2>
-                <p class="text-zinc-400 leading-relaxed mb-6">
-                    Collede uses secure session management. When making requests to the gateway, you must include your session token in the Authorization header.
-                </p>
-                <pre><code><span class="token-attr">Authorization:</span> <span class="token-string">Bearer YOUR_SESSION_TOKEN</span></code></pre>
-            </section>
-
-            <section id="base-url" class="doc-section mb-20">
-                <h2 class="text-2xl font-bold mb-6 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 mr-3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="m14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-                    Base URL
-                </h2>
-                <p class="text-zinc-400 mb-6 leading-relaxed">
-                    All API requests should be directed to the following base URL:
-                </p>
-                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-8">
-                    <code class="text-indigo-400">https://your-collede-instance.com/v1</code>
-                </div>
-            </section>
-
-            <section id="limits" class="doc-section mb-20">
-                <h2 class="text-2xl font-bold mb-6 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 mr-3"><path d="M12 2v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="M2 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="M12 22v-4"/><path d="m19.07 19.07-2.83-2.83"/><path d="M22 12h-4"/><path d="m19.07 4.93-2.83 2.83"/></svg>
-                    Rate Limits
-                </h2>
-                <p class="text-zinc-400 mb-6 leading-relaxed">
-                    To ensure fair usage and system stability, the gateway enforces a daily request limit per user.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="card p-6 border border-zinc-800 bg-zinc-900/50">
-                        <h4 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-2">Requests Per Day (RPD)</h4>
-                        <p class="text-2xl font-black text-white">13,000</p>
-                        <p class="text-xs text-zinc-500 mt-2">Resets daily at 00:00 UTC</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="chat-completions" class="doc-section mb-20">
-                <h2 class="text-2xl font-bold mb-6 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 mr-3"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    Chat Completions
-                </h2>
-                <p class="text-zinc-400 leading-relaxed mb-6">
-                    Create a model response for the given chat conversation. This endpoint supports both standard JSON responses and Server-Sent Events (SSE) for streaming.
-                </p>
-                <div class="space-y-4">
-                    <div class="flex items-center space-x-4">
-                        <span class="px-2 py-1 bg-green-500/10 text-green-500 text-[10px] font-bold rounded border border-green-500/20">POST</span>
-                        <code class="text-sm text-zinc-300">/v1/chat/completions</code>
-                    </div>
-                </div>
-            </section>
-
-            <section id="python-sdk" class="doc-section mb-20">
-                <h2 class="text-2xl font-bold mb-6 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 mr-3"><path d="m10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="m14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-                    Python SDK Example
-                </h2>
-                <pre><code><span class="token-keyword">from</span> openai <span class="token-keyword">import</span> OpenAI
-
-client = OpenAI(
-    base_url=<span class="token-string">"https://your-collede-instance.com/v1"</span>,
-    api_key=<span class="token-string">"YOUR_SESSION_TOKEN"</span> <span class="token-comment"># Use your session token here</span>
-)
-
-response = client.chat.completions.create(
-    model=<span class="token-string">"gpt-4"</span>,
-    messages=[{<span class="token-string">"role"</span>: <span class="token-string">"user"</span>, <span class="token-string">"content"</span>: <span class="token-string">"Hello!"</span>}]
-)
-
-<span class="token-keyword">print</span>(response.choices[<span class="token-attr">0</span>].message.content)</code></pre>
-            </section>
-        </main>
+            </main>
+        </div>
     </div>
 
     <script>
-        const ADMIN_EMAIL = 'keyamuha@gmail.com';
+        const ADMIN_EMAILS = ['keyamuha@gmail.com', 'fricker2025@gmail.com'];
 
         window.addEventListener('load', async function () {
             await Clerk.load();
@@ -186,10 +163,14 @@ response = client.chat.completions.create(
                 Clerk.mountUserButton(userButtonDiv);
                 
                 // Show admin link if user is admin
-                const email = Clerk.user.primaryEmailAddress.emailAddress;
-                if (email === ADMIN_EMAIL) {
+                const email = Clerk.user.primaryEmailAddress.emailAddress.toLowerCase();
+                if (ADMIN_EMAILS.includes(email)) {
                     adminLink.classList.remove('hidden');
                 }
+
+                // Show dashboard link
+                const dashboardLink = document.getElementById('dashboard-link');
+                if (dashboardLink) dashboardLink.classList.remove('hidden');
             }
         });
 

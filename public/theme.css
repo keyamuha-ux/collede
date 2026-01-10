@@ -1,0 +1,218 @@
+:root {
+    --ddlc-pink: #ffb7c5;
+    --ddlc-pink-light: #fce4ec;
+    --ddlc-pink-dark: #f06292;
+    --ddlc-blue: #b3e5fc;
+    --ddlc-purple: #e1bee7;
+    --ddlc-cream: #fffaf0;
+    --ddlc-white: #ffffff;
+    --ddlc-text: #4a4a4a;
+    --ddlc-text-light: #7a7a7a;
+    --ddlc-border: #ffd1dc;
+    --ddlc-shadow: rgba(255, 183, 197, 0.3);
+}
+
+body {
+    background-color: var(--ddlc-cream);
+    color: var(--ddlc-text);
+    font-family: 'Nunito', 'Quicksand', 'Inter', sans-serif;
+}
+
+/* Interactive elements should not inherit the pink bold color by default if it breaks contrast */
+.sidebar-link, .nav-link, a:not(.btn-primary):not(.btn-secondary) {
+    color: var(--ddlc-text);
+}
+
+.sidebar-link.active {
+    color: white !important;
+}
+
+.sidebar-link:hover, .nav-link:hover {
+    color: var(--ddlc-pink-dark);
+}
+
+/* Ensure buttons and links have perfect contrast */
+.btn-primary {
+    background-color: var(--ddlc-pink);
+    color: white !important;
+    border: 2px solid var(--ddlc-pink-dark);
+    box-shadow: 0 4px 0 var(--ddlc-pink-dark);
+    transition: all 0.1s;
+}
+
+.btn-primary:hover {
+    background-color: var(--ddlc-pink-light);
+    color: var(--ddlc-pink-dark) !important;
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--ddlc-pink-dark);
+}
+
+.btn-secondary {
+    background-color: var(--ddlc-blue);
+    color: #0277bd !important;
+    border: 2px solid #0288d1;
+    box-shadow: 0 4px 0 #0288d1;
+}
+
+.btn-secondary:hover {
+    background-color: #e1f5fe;
+    color: #01579b !important;
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #0288d1;
+}
+
+/* Intentional Imperfection & Human Touch */
+.hand-drawn {
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+    border-width: 3px !important;
+}
+
+.hand-drawn-alt {
+    border-radius: 15px 225px 15px 255px/255px 15px 225px 15px !important;
+    border-width: 3px !important;
+}
+
+.glyph-accent {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 800;
+    margin: 0 0.25rem;
+}
+
+/* Glitch Effects */
+.glitch-active {
+    animation: glitch-skew 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+    filter: hue-rotate(90deg) contrast(1.5);
+    overflow: hidden;
+}
+
+@keyframes glitch-skew {
+    0% { transform: skew(0deg); }
+    20% { transform: skew(3deg); }
+    40% { transform: skew(-3deg); }
+    60% { transform: skew(1deg); }
+    80% { transform: skew(-1deg); }
+    100% { transform: skew(0deg); }
+}
+
+.glitch-text {
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(44px, 450px, 56px, 0); }
+    20% { clip: rect(12px, 450px, 34px, 0); }
+    40% { clip: rect(78px, 450px, 90px, 0); }
+    60% { clip: rect(23px, 450px, 45px, 0); }
+    80% { clip: rect(67px, 450px, 89px, 0); }
+    100% { clip: rect(10px, 450px, 30px, 0); }
+}
+
+/* Typography - Human Touch */
+/* Light pastel pink for all bold text as requested */
+.font-bold, .font-semibold, .font-black, b, strong {
+    color: var(--ddlc-pink) !important;
+}
+
+/* Ensure buttons and links maintain contrast despite the global pink bold color */
+.btn-primary .font-bold, .btn-primary .font-black, .btn-primary b, .btn-primary strong,
+.btn-secondary .font-bold, .btn-secondary .font-black, .btn-secondary b, .btn-secondary strong,
+.sidebar-link.active .font-bold, .sidebar-link.active .font-black {
+    color: inherit !important;
+}
+
+/* Specific pastel pink for decorative elements or where explicitly requested */
+.text-pastel-pink, .glyph-accent {
+    color: var(--ddlc-pink) !important;
+}
+
+.marker-highlight {
+    background: linear-gradient(120deg, var(--ddlc-pink-light) 0%, var(--ddlc-pink-light) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.4em;
+    background-position: 0 88%;
+}
+
+.scribble-bg {
+    background-image: radial-gradient(var(--ddlc-pink) 0.5px, transparent 0.5px);
+    background-size: 10px 10px;
+}
+
+.card {
+    background-color: var(--ddlc-white);
+    border: 3px solid var(--ddlc-border);
+    border-radius: 1.5rem;
+    box-shadow: 6px 6px 0 var(--ddlc-pink-light);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+    transform: translateY(-4px) rotate(-1deg);
+    box-shadow: 10px 10px 0 var(--ddlc-pink);
+}
+
+.card:nth-child(even):hover {
+    transform: translateY(-4px) rotate(1deg);
+}
+
+/* Personality in Code */
+pre {
+    background-color: #1a1a1a;
+    border: 3px solid var(--ddlc-pink);
+    border-radius: 1.25rem;
+    box-shadow: 4px 4px 0 var(--ddlc-pink-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+pre::before {
+    content: "✦ CLUB_SCRIPT ✦";
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    font-size: 0.6rem;
+    font-weight: 900;
+    color: var(--ddlc-pink);
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.5rem;
+}
+
+/* Notebook Style for Docs */
+.notebook-page {
+    background-color: white;
+    background-image: linear-gradient(rgba(179, 229, 252, 0.2) 1px, transparent 1px);
+    background-size: 100% 2.5rem;
+    padding: 5rem 3rem;
+    border-left: 60px solid var(--ddlc-pink-light);
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+    border-radius: 4px 15px 15px 4px;
+}
+
+.notebook-page::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 45px;
+    bottom: 0;
+    width: 2px;
+    background: rgba(240, 98, 146, 0.2);
+}
+
+.marginalia {
+    position: absolute;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--ddlc-pink-dark);
+    opacity: 0.7;
+    max-width: 120px;
+    line-height: 1.2;
+    pointer-events: none;
+}
+
+/* Background images placeholders */
+.hero-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

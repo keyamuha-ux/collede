@@ -1,0 +1,1415 @@
+[
+  {
+    "id": "nova-fast",
+    "name": "nova-fast",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "qwen-coder",
+    "name": "qwen-coder",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "mistral",
+    "name": "mistral",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "openai-fast",
+    "name": "openai-fast",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "grok",
+    "name": "grok",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "openai",
+    "name": "openai",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "perplexity-fast",
+    "name": "perplexity-fast",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "chickytutor",
+    "name": "chickytutor",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "minimax",
+    "name": "minimax",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "deepseek",
+    "name": "deepseek",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "glm",
+    "name": "glm",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "kimi-k2-thinking",
+    "name": "kimi-k2-thinking",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "midijourney",
+    "name": "midijourney",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "perplexity-reasoning",
+    "name": "perplexity-reasoning",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "openai-large",
+    "name": "openai-large",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "openai-audio",
+    "name": "openai-audio",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gemini-fast",
+    "name": "gemini-fast",
+    "created": 1677610602,
+    "owned_by": "gemini",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gemini",
+    "name": "gemini",
+    "created": 1677610602,
+    "owned_by": "gemini",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gemini-search",
+    "name": "gemini-search",
+    "created": 1677610602,
+    "owned_by": "gemini",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gemini-large",
+    "name": "gemini-large",
+    "created": 1677610602,
+    "owned_by": "gemini",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "claude-fast",
+    "name": "claude-fast",
+    "created": 1677610602,
+    "owned_by": "claude",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "claude",
+    "name": "claude",
+    "created": 1677610602,
+    "owned_by": "claude",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "claude-large",
+    "name": "claude-large",
+    "created": 1677610602,
+    "owned_by": "claude",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "xiaomi/mimo-v2-flash:free",
+    "name": "xiaomi/mimo-v2-flash:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "mistralai/devstral-2512:free",
+    "name": "mistralai/devstral-2512:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "kwaipilot/kat-coder-pro:free",
+    "name": "kwaipilot/kat-coder-pro:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "nex-agi/deepseek-v3.1-nex-n1:free",
+    "name": "nex-agi/deepseek-v3.1-nex-n1:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "tngtech/deepseek-r1t2-chimera:free",
+    "name": "tngtech/deepseek-r1t2-chimera:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "tngtech/deepseek-r1t-chimera:free",
+    "name": "tngtech/deepseek-r1t-chimera:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "tngtech/tng-r1t-chimera:free",
+    "name": "tngtech/tng-r1t-chimera:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "deepseek/deepseek-r1-0528:free",
+    "name": "deepseek/deepseek-r1-0528:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "nvidia/nemotron-3-nano-30b-a3b:free",
+    "name": "nvidia/nemotron-3-nano-30b-a3b:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "nvidia/nemotron-nano-12b-v2-vl:free",
+    "name": "nvidia/nemotron-nano-12b-v2-vl:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "qwen/qwen3-coder:free",
+    "name": "qwen/qwen3-coder:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "ai/glm-4.5-air:free",
+    "name": "ai/glm-4.5-air:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "google/gemma-3-27b-it:free",
+    "name": "google/gemma-3-27b-it:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "meta-llama/llama-3.3-70b-instruct:free",
+    "name": "meta-llama/llama-3.3-70b-instruct:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "google/gemini-2.0-flash-exp:free",
+    "name": "google/gemini-2.0-flash-exp:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+    "name": "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "openai/gpt-oss-120b:free",
+    "name": "openai/gpt-oss-120b:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "nousresearch/hermes-3-llama-3.1-405b:free",
+    "name": "nousresearch/hermes-3-llama-3.1-405b:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "meta-llama/llama-3.1-405b-instruct:free",
+    "name": "meta-llama/llama-3.1-405b-instruct:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "mistralai/mistral-7b-instruct:free",
+    "name": "mistralai/mistral-7b-instruct:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "openai/gpt-oss-20b:free",
+    "name": "openai/gpt-oss-20b:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "mistralai/mistral-small-3.1-24b-instruct:free",
+    "name": "mistralai/mistral-small-3.1-24b-instruct:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "nvidia/nemotron-nano-9b-v2:free",
+    "name": "nvidia/nemotron-nano-9b-v2:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "arcee-ai/trinity-mini:free",
+    "name": "arcee-ai/trinity-mini:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "qwen/qwen3-4b:free",
+    "name": "qwen/qwen3-4b:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "meta-llama/llama-3.2-3b-instruct:free",
+    "name": "meta-llama/llama-3.2-3b-instruct:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "qwen/qwen-2.5-vl-7b-instruct:free",
+    "name": "qwen/qwen-2.5-vl-7b-instruct:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "google/gemma-3n-e2b-it:free",
+    "name": "google/gemma-3n-e2b-it:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "google/gemma-3-4b-it:free",
+    "name": "google/gemma-3-4b-it:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "google/gemma-3-12b-it:free",
+    "name": "google/gemma-3-12b-it:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "google/gemma-3n-e4b-it:free",
+    "name": "google/gemma-3n-e4b-it:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "moonshotai/kimi-k2:free",
+    "name": "moonshotai/kimi-k2:free",
+    "created": 1677610602,
+    "owned_by": "openrouter",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-nemotron-nano-9b",
+    "name": "stable-horde-nemotron-nano-9b",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-llama-3.2-3b",
+    "name": "stable-horde-llama-3.2-3b",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-mistral-7b",
+    "name": "stable-horde-mistral-7b",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-qwen3-4b",
+    "name": "stable-horde-qwen3-4b",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-neonmaid-12b",
+    "name": "stable-horde-neonmaid-12b",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "meridian",
+    "name": "meridian",
+    "created": 1677610602,
+    "owned_by": "meridian",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gemini-2.0-flash-001",
+    "name": "gemini-2.0-flash-001",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gemini-3-flash-preview",
+    "name": "gemini-3-flash-preview",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gemini-2.0-flash-lite-001",
+    "name": "gemini-2.0-flash-lite-001",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gemini-2.5-flash",
+    "name": "gemini-2.5-flash",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gemini-2.5-flash-image",
+    "name": "gemini-2.5-flash-image",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gemini-2.5-flash-lite",
+    "name": "gemini-2.5-flash-lite",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gemini-2.5-pro",
+    "name": "gemini-2.5-pro",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gemini-3-pro-image-preview",
+    "name": "gemini-3-pro-image-preview",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gemini-3-pro-preview",
+    "name": "gemini-3-pro-preview",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "deepseek-prover-v2",
+    "name": "deepseek-prover-v2",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "deepseek-r1",
+    "name": "deepseek-r1",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "deepseek-v3",
+    "name": "deepseek-v3",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "deepseek-r1-0528",
+    "name": "deepseek-r1-0528",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "deepseek-v3.1",
+    "name": "deepseek-v3.1",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "deepseek-v3.2-exp",
+    "name": "deepseek-v3.2-exp",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "deepseek-v3.2",
+    "name": "deepseek-v3.2",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "deepseek-v3.1-nex-n1:free",
+    "name": "deepseek-v3.1-nex-n1:free",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "glm-4.5-air:free",
+    "name": "glm-4.5-air:free",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "glm-4-32b",
+    "name": "glm-4-32b",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "glm-4.5",
+    "name": "glm-4.5",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "glm-4.5-air",
+    "name": "glm-4.5-air",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "glm-4.5v",
+    "name": "glm-4.5v",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "glm-4.6",
+    "name": "glm-4.6",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "glm-4.7",
+    "name": "glm-4.7",
+    "created": 1677610602,
+    "owned_by": "liz",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "AI21-Jamba-1.5-Large",
+    "name": "AI21-Jamba-1.5-Large",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Phi-4-reasoning",
+    "name": "Phi-4-reasoning",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Phi-4-multimodal-instruct",
+    "name": "Phi-4-multimodal-instruct",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Phi-4-mini-reasoning",
+    "name": "Phi-4-mini-reasoning",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Phi-4-mini-instruct",
+    "name": "Phi-4-mini-instruct",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Phi-4",
+    "name": "Phi-4",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "text-embedding-3-small",
+    "name": "text-embedding-3-small",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "text-embedding-3-large",
+    "name": "text-embedding-3-large",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "o4-mini",
+    "name": "o4-mini",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "o3-mini",
+    "name": "o3-mini",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "o3",
+    "name": "o3",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "o1-preview",
+    "name": "o1-preview",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "o1-mini",
+    "name": "o1-mini",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "o1",
+    "name": "o1",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gpt-5-nano",
+    "name": "gpt-5-nano",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gpt-5-mini",
+    "name": "gpt-5-mini",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gpt-5-chat",
+    "name": "gpt-5-chat",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gpt-5",
+    "name": "gpt-5",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gpt-4o-mini",
+    "name": "gpt-4o-mini",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gpt-4o",
+    "name": "gpt-4o",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gpt-4.1-nano",
+    "name": "gpt-4.1-nano",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gpt-4.1-mini",
+    "name": "gpt-4.1-mini",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gpt-4.1",
+    "name": "gpt-4.1",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Meta-Llama-3.1-8B-Instruct",
+    "name": "Meta-Llama-3.1-8B-Instruct",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Meta-Llama-3.1-405B-Instruct",
+    "name": "Meta-Llama-3.1-405B-Instruct",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "MAI-DS-R1",
+    "name": "MAI-DS-R1",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Llama-3.3-70B-Instruct",
+    "name": "Llama-3.3-70B-Instruct",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Llama-3.2-90B-Vision-Instruct",
+    "name": "Llama-3.2-90B-Vision-Instruct",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Llama-3.2-11B-Vision-Instruct",
+    "name": "Llama-3.2-11B-Vision-Instruct",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Llama-4-Scout-17B-16E-Instruct",
+    "name": "Llama-4-Scout-17B-16E-Instruct",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Llama-4-Maverick-17B-128E-Instruct-FP8",
+    "name": "Llama-4-Maverick-17B-128E-Instruct-FP8",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Cohere-command-r-plus-08-2024",
+    "name": "Cohere-command-r-plus-08-2024",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Cohere-command-r-08-2024",
+    "name": "Cohere-command-r-08-2024",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Cohere-command-a",
+    "name": "Cohere-command-a",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Mistral-small-3.1",
+    "name": "Mistral-small-3.1",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Codestral-25.01",
+    "name": "Codestral-25.01",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Mistral-medium-3-25.05",
+    "name": "Mistral-medium-3-25.05",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Ministral-3B",
+    "name": "Ministral-3B",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "DeepSeek-V3-0324",
+    "name": "DeepSeek-V3-0324",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "flux",
+    "name": "flux",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "zimage",
+    "name": "zimage",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "turbo",
+    "name": "turbo",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gptimage",
+    "name": "gptimage",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "gptimage-large",
+    "name": "gptimage-large",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "seedream",
+    "name": "seedream",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "kontext",
+    "name": "kontext",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "nanobanana",
+    "name": "nanobanana",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "seedream-pro",
+    "name": "seedream-pro",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "nanobanana-pro",
+    "name": "nanobanana-pro",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "appypie-sdxl",
+    "name": "appypie-sdxl",
+    "created": 1677610602,
+    "owned_by": "appypie",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "appypie-sd-inpainting",
+    "name": "appypie-sd-inpainting",
+    "created": 1677610602,
+    "owned_by": "appypie",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "appypie-flux-schnell",
+    "name": "appypie-flux-schnell",
+    "created": 1677610602,
+    "owned_by": "appypie",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Stable-Diffusion-3.5-Large",
+    "name": "Stable-Diffusion-3.5-Large",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "HunyuanImage-3.0",
+    "name": "HunyuanImage-3.0",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "Qwen-Image",
+    "name": "Qwen-Image",
+    "created": 1677610602,
+    "owned_by": "github",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-flux-schnell",
+    "name": "stable-horde-flux-schnell",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-sdxl",
+    "name": "stable-horde-sdxl",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-deliberate",
+    "name": "stable-horde-deliberate",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-dreamshaper",
+    "name": "stable-horde-dreamshaper",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-realistic-vision",
+    "name": "stable-horde-realistic-vision",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-absolute-reality",
+    "name": "stable-horde-absolute-reality",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-juggernaut-xl",
+    "name": "stable-horde-juggernaut-xl",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-pony-diffusion",
+    "name": "stable-horde-pony-diffusion",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-stable-diffusion",
+    "name": "stable-horde-stable-diffusion",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-anything-v5",
+    "name": "stable-horde-anything-v5",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-flux-dev",
+    "name": "stable-horde-flux-dev",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-icbinp",
+    "name": "stable-horde-icbinp",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "stable-horde-dreamlike-photoreal",
+    "name": "stable-horde-dreamlike-photoreal",
+    "created": 1677610602,
+    "owned_by": "stablehorde",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "seedance-pro",
+    "name": "seedance-pro",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "seedance",
+    "name": "seedance",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "veo",
+    "name": "veo",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  },
+  {
+    "id": "openai-audio",
+    "name": "openai-audio",
+    "created": 1677610602,
+    "owned_by": "pollinations",
+    "enabled": true,
+    "providerId": "1768059138413",
+    "providerName": "Cloud"
+  }
+]

@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel | Collede</title>
+    <title>Club Management | Collede</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/theme.css">
     <script
       async
       crossorigin="anonymous"
@@ -16,57 +17,68 @@
       type="text/javascript"
     ></script>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #09090b; color: #fafafa; }
-        .nav-link { color: #a1a1aa; transition: color 0.2s; }
-        .nav-link:hover { color: #ffffff; }
-        .card { background-color: #09090b; border: 1px solid #18181b; border-radius: 0.75rem; }
-        .input-field { background-color: #09090b; border: 1px solid #27272a; border-radius: 0.5rem; transition: all 0.2s; }
-        .input-field:focus { border-color: #6366f1; outline: none; ring: 2px; ring-color: rgba(99, 102, 241, 0.2); }
-        .btn-primary { background-color: #ffffff; color: #000000; font-weight: 600; transition: all 0.2s; }
-        .btn-primary:hover { background-color: #e4e4e7; transform: translateY(-1px); }
-        .btn-secondary { background-color: #18181b; border: 1px solid #27272a; color: #fafafa; font-weight: 600; transition: all 0.2s; }
-        .btn-secondary:hover { background-color: #27272a; }
-        .custom-toggle { position: relative; display: inline-block; width: 40px; height: 20px; }
+        body { background-color: var(--ddlc-cream); color: var(--ddlc-text); font-family: 'Nunito', sans-serif; }
+        .nav-link { color: var(--ddlc-text-light); transition: all 0.2s; }
+        .nav-link:hover { color: var(--ddlc-pink-dark); }
+        .card { background-color: white; border: 4px solid var(--ddlc-border); border-radius: 1.5rem; box-shadow: 8px 8px 0 var(--ddlc-shadow); }
+        .input-field { background-color: white; border: 2px solid var(--ddlc-border); border-radius: 1rem; transition: all 0.2s; }
+        .input-field:focus { border-color: var(--ddlc-pink); outline: none; box-shadow: 0 0 0 4px var(--ddlc-shadow); }
+        .custom-toggle { position: relative; display: inline-block; width: 44px; height: 24px; }
         .custom-toggle input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #27272a; transition: .4s; border-radius: 20px; }
-        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
-        input:checked + .slider { background-color: #6366f1; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--ddlc-pink-light); transition: .4s; border-radius: 24px; border: 2px solid var(--ddlc-border); }
+        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 2px; bottom: 2px; background-color: white; transition: .4s; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        input:checked + .slider { background-color: var(--ddlc-pink); border-color: var(--ddlc-pink-dark); }
         input:checked + .slider:before { transform: translateX(20px); }
-        #auth-overlay, #admin-only-overlay { background-color: #09090b; z-index: 100; }
+        #auth-overlay, #admin-only-overlay { background-color: var(--ddlc-cream); z-index: 100; }
+        
+        .admin-bg {
+            background-image: url('/admin/bg.gif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Disable card animations */
+        .card:hover, .card:nth-child(even):hover {
+            transform: none !important;
+        }
     </style>
 </head>
-<body class="selection:bg-indigo-500/30">
+<body class="selection:bg-[#ffb7c5]/30">
     <!-- Auth Overlay -->
-    <div id="auth-overlay" class="fixed inset-0 flex flex-col items-center justify-center space-y-6 text-center px-6 hidden">
-        <div class="w-20 h-20 bg-zinc-900 rounded-2xl flex items-center justify-center border border-zinc-800 mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-500"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    <div id="auth-overlay" class="fixed inset-0 z-[100] flex flex-col items-center justify-center space-y-8 text-center px-6 hidden bg-[#fffafb]/95 backdrop-blur-sm">
+        <div class="w-24 h-24 bg-[#ffb7c5]/20 rounded-[2.5rem] flex items-center justify-center border-4 border-[#ffb7c5] shadow-xl mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffb7c5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
         </div>
-        <h1 class="text-3xl font-black">Authentication Required</h1>
-        <p class="text-zinc-500 max-w-md">Please sign in to access the Collede administrative configuration panel.</p>
-        <button onclick="Clerk.openSignIn()" class="btn-primary px-8 py-3 rounded-xl">Sign In to Dashboard</button>
+        <h3 class="text-4xl font-black mb-4 text-[#ffb7c5]">Wait a Minute！</h3>
+        <p class="text-xl font-bold mb-8 text-[#ffb7c5]/80 italic">You need to sign in to access the club management.</p>
+        <div class="flex flex-col space-y-4">
+            <button onclick="Clerk.openSignIn()" class="btn-primary px-12 py-4 rounded-2xl text-xl font-black shadow-xl">Sign In Now</button>
+            <a href="/" class="text-[#ffb7c5] hover:text-[#ffaab9] font-black text-lg underline decoration-4 underline-offset-4">Return to Home</a>
+        </div>
     </div>
 
     <!-- Admin Only Overlay -->
-    <div id="admin-only-overlay" class="fixed inset-0 flex flex-col items-center justify-center space-y-6 text-center px-6 hidden">
-        <div class="w-20 h-20 bg-red-500/5 rounded-2xl flex items-center justify-center border border-red-500/20 mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+    <div id="admin-only-overlay" class="fixed inset-0 flex flex-col items-center justify-center space-y-8 text-center px-6 hidden bg-[#fffafb]/95 backdrop-blur-md">
+        <div class="w-24 h-24 bg-[#ffb7c5]/20 rounded-3xl flex items-center justify-center border-4 border-[#ffb7c5] shadow-xl mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffb7c5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
         </div>
-        <h1 class="text-3xl font-black">Access Denied</h1>
-        <p class="text-zinc-500 max-w-md">This area is restricted to the system administrator (keyamuha@gmail.com). If you believe this is an error, please contact support.</p>
-        <a href="/" class="text-indigo-400 hover:text-indigo-300 font-medium">Return to Home</a>
+        <h1 class="text-4xl font-black text-[#ffb7c5]">Not Your Room!</h1>
+        <p class="max-w-md text-lg font-bold text-[#ffb7c5]/80 italic">This area is only for the Club President. If you're lost, you can always go back home!</p>
+        <a href="/" class="text-[#ffb7c5] hover:text-[#ffaab9] font-black text-lg underline decoration-4 underline-offset-4">Return to Home</a>
     </div>
 
-    <nav class="border-b border-zinc-800 bg-zinc-950/50 backdrop-blur-md sticky top-0 z-50">
+    <nav class="border-b-4 border-[#ffb7c5]/20 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div class="container mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-4">
-                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 14v2"/><path d="M12 8h.01"/></svg>
+                <div class="w-10 h-10 bg-[#ffb7c5] rounded-xl flex items-center justify-center shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
                 </div>
-                <h1 class="text-lg font-bold tracking-tight">System Admin</h1>
+                <h1 class="text-3xl font-black tracking-tighter text-[#ffb7c5]">Club Settings</h1>
             </div>
-            <div class="flex items-center space-x-6">
-                <a href="/" class="text-sm font-medium nav-link flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 22 3 22 10"/><line x1="14" y1="10" x2="22" y2="2"/></svg>
+            <div class="flex items-center space-x-8">
+                <a href="/" class="text-sm font-black nav-link flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 22 3 22 10"/><line x1="14" y1="10" x2="22" y2="2"/></svg>
                     Live Site
                 </a>
                 <div id="user-button"></div>
@@ -74,78 +86,113 @@
         </div>
     </nav>
 
-    <main class="container mx-auto px-6 py-12">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <main class="container mx-auto px-6 py-12 admin-bg min-h-screen relative">
+        <!-- Marginalia easter eggs -->
+        <div class="marginalia top-24 -left-12 hidden xl:block">
+            President's eyes only！ <span class="text-[#ffb7c5]">✦</span>
+        </div>
+        <div class="marginalia bottom-32 -right-16 hidden xl:block">
+            "With great power comes... a lot of paperwork！" ⧈
+        </div>
+        <div class="marginalia top-1/2 -left-16 hidden xl:block opacity-40">
+            Please don't delete me...
+        </div>
+        <div class="marginalia bottom-20 left-1/4 hidden xl:block opacity-20">
+            "I'll leave you be for now."
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
             <!-- Settings Panel -->
             <div class="lg:col-span-4 space-y-8">
-                <div class="card p-8">
-                    <h2 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-6 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="M2 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="M12 22v-4"/><path d="m19.07 19.07-2.83-2.83"/><path d="M22 12h-4"/><path d="m19.07 4.93-2.83 2.83"/></svg>
-                        System Provider
+                <div class="card p-8 bg-white/90 backdrop-blur-sm">
+                    <h2 class="text-xs font-black uppercase tracking-widest mb-8 flex items-center text-[#ffb7c5]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="M2 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="M12 22v-4"/><path d="m19.07 19.07-2.83-2.83"/><path d="M22 12h-4"/><path d="m19.07 4.93-2.83 2.83"/></svg>
+                        Add New Provider
                     </h2>
-                    <div class="space-y-6">
+                    <form onsubmit="event.preventDefault(); handleAddProvider();" class="space-y-6">
                         <div>
-                            <label class="block text-xs font-semibold text-zinc-400 mb-2">API Base URL</label>
-                            <input type="text" id="apiBaseUrl" placeholder="https://api.openai.com/v1" 
-                                class="w-full input-field px-4 py-2.5 text-sm text-zinc-200">
+                            <label class="block text-sm font-bold mb-2 ml-1 text-gray-500">Provider Name</label>
+                            <input type="text" id="providerName" name="name" placeholder="e.g. OpenAI, Anthropic" 
+                                class="w-full input-field px-5 py-3 text-sm font-medium text-gray-700">
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-zinc-400 mb-2">API Key</label>
+                            <label class="block text-sm font-bold mb-2 ml-1 text-gray-500">API Base URL</label>
+                            <input type="text" id="apiBaseUrl" name="url" placeholder="https://api.openai.com/v1" 
+                                class="w-full input-field px-5 py-3 text-sm font-medium text-gray-700">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2 ml-1 text-gray-500">Secret Key</label>
                             <div class="relative">
-                                <input type="password" id="apiKey" placeholder="sk-..." 
-                                    class="w-full input-field px-4 py-2.5 text-sm text-zinc-200 pr-10">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-600"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                <input type="password" id="apiKey" name="key" placeholder="sk-..." 
+                                    class="w-full input-field px-5 py-3 text-sm font-medium text-gray-700 pr-12">
+                                <div class="absolute right-4 top-1/2 -translate-y-1/2 text-[#ffb7c5]/50">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                </div>
                             </div>
                         </div>
-                        <button id="saveConfig" class="w-full btn-primary py-3 rounded-lg flex items-center justify-center">
-                            Save System Config
+                        <button type="submit" id="addProvider" class="w-full btn-primary py-4 rounded-2xl flex items-center justify-center text-lg font-black">
+                            Add Provider
                         </button>
+                    </form>
+                </div>
+
+                <!-- Active Providers List -->
+                <div class="card p-8 bg-white/90 backdrop-blur-sm">
+                    <h2 class="text-xs font-black uppercase tracking-widest mb-6 flex items-center text-[#ffb7c5]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        Active Providers
+                    </h2>
+                    <div id="providersList" class="space-y-4">
+                        <!-- Providers will be injected here -->
+                        <div class="text-center py-4 text-gray-400 italic text-sm">No providers added yet.</div>
                     </div>
                 </div>
 
-                <div class="bg-indigo-500/5 border border-indigo-500/10 rounded-xl p-6">
-                    <h4 class="text-indigo-400 text-xs font-bold uppercase tracking-widest mb-3 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        Owner Access
+                <div class="bg-[#ffb7c5]/5 border-4 border-[#ffb7c5]/20 rounded-3xl p-8 shadow-sm">
+                    <h4 class="text-xs font-black uppercase tracking-widest mb-4 flex items-center text-[#ffb7c5]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        Club President Note
                     </h4>
-                    <p class="text-zinc-500 text-xs leading-relaxed">
-                        Settings here define the global provider for all Collede users. Ensure the API key has sufficient quota and the base URL is correct.
+                    <p class="text-sm leading-relaxed font-bold italic text-gray-600">
+                        "These settings define the heartbeat of our club. Make sure the secret key is valid and has enough pages left for everyone to write their stories!"
                     </p>
                 </div>
             </div>
 
             <!-- Models Panel -->
             <div class="lg:col-span-8 space-y-8">
-                <div class="card overflow-hidden">
-                    <div class="p-8 border-b border-zinc-900 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="card overflow-hidden bg-white/90 backdrop-blur-sm">
+                    <div class="p-8 border-b-4 border-[#ffb7c5]/10 flex flex-col md:flex-row md:items-center justify-between gap-6">
                         <div>
-                            <h2 class="text-xl font-bold mb-1">Model Inventory</h2>
-                            <p class="text-sm text-zinc-500">Enable or disable specific models for your gateway.</p>
+                            <h2 class="text-2xl font-black mb-1 text-[#ffb7c5]">Club Members</h2>
+                            <p class="text-sm font-bold text-gray-500">Manage which AI models are invited to the clubroom.</p>
                         </div>
-                        <button id="fetchModels" class="btn-secondary px-6 py-2.5 rounded-lg text-sm flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
-                            Sync Models
+                        <button id="fetchModels" onclick="handleSyncModels()" class="btn-secondary px-8 py-3 rounded-2xl text-sm font-black flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+                            Sync Members
                         </button>
                     </div>
 
                     <div class="overflow-x-auto">
                         <table class="w-full text-left border-collapse">
                             <thead>
-                                <tr class="bg-zinc-950/50">
-                                    <th class="py-4 px-8 text-xs font-bold text-zinc-500 uppercase tracking-widest">Model ID</th>
-                                    <th class="py-4 px-8 text-xs font-bold text-zinc-500 uppercase tracking-widest">Status</th>
-                                    <th class="py-4 px-8 text-xs font-bold text-zinc-500 uppercase tracking-widest text-right">Visibility</th>
+                                <tr class="bg-[#ffb7c5]/5">
+                                    <th class="py-5 px-8 text-xs font-black text-[#ffb7c5] uppercase tracking-widest">Model ID</th>
+                                    <th class="py-5 px-8 text-xs font-black text-[#ffb7c5] uppercase tracking-widest">Status</th>
+                                    <th class="py-5 px-8 text-xs font-black text-[#ffb7c5] uppercase tracking-widest text-right">Visibility</th>
                                 </tr>
                             </thead>
-                            <tbody id="modelsTableBody" class="divide-y divide-zinc-900">
+                            <tbody id="modelsTableBody" class="divide-y-4 divide-[#ffb7c5]/10">
                                 <!-- Models will be injected here -->
                                 <tr>
-                                    <td colspan="3" class="py-20 text-center text-zinc-600">
-                                        <div class="flex flex-col items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mb-4 opacity-20"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
-                                            <p class="text-sm italic">Sync models from your provider to get started.</p>
-                                        </div>
-                                    </td>
+                                    <td colspan="3" class="py-32 text-center">
+                            <div class="flex flex-col items-center">
+                                <div class="w-20 h-20 bg-[#ffb7c5]/20 rounded-[2rem] flex items-center justify-center mb-6 border-4 border-[#ffb7c5]/30 shadow-xl">
+                                    <span class="text-3xl text-[#ffb7c5]">！</span>
+                                </div>
+                                <p class="font-black italic text-xl tracking-wide text-gray-400">The clubroom is empty... <br/> <span class="text-[#ffb7c5]">Sync models to invite some friends！</span></p>
+                            </div>
+                        </td>
                                 </tr>
                             </tbody>
                         </table>

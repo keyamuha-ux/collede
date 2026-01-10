@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { getConfig } = require('./config');
+const { getConfig, getSystemModels } = require('./config');
 const { checkAndIncrementUsage } = require('./usage');
 
 async function chatHandler(req, res) {
@@ -21,13 +21,23 @@ async function chatHandler(req, res) {
       });
     }
 
-    // Use system config set by admin
-    const config = await getConfig('system');
-    if (!config.apiBaseUrl || !config.apiKey) {
-      return res.status(503).json({ error: 'API Gateway is not yet configured by the administrator.' });
+    // Find the provider for the requested model
+    const systemModels = await getSystemModels();
+    const requestedModel = req.body.model;
+    const modelInfo = systemModels.find(m => m.id === requestedModel && m.enabled !== false);
+
+    if (!modelInfo) {
+      return res.status(404).json({ error: `Model '${requestedModel}' not found or not enabled.` });
     }
 
-    const { apiBaseUrl, apiKey } = config;
+    const config = await getConfig('system');
+    const provider = (config.providers || []).find(p => p.id === modelInfo.providerId);
+
+    if (!provider) {
+      return res.status(503).json({ error: 'The provider for this model is no longer available.' });
+    }
+
+    const { apiBaseUrl, apiKey } = provider;
     const url = `${apiBaseUrl.replace(/\/$/, '')}/chat/completions`;
 
     // Forward the request with the user ID for abuse monitoring if supported by the provider

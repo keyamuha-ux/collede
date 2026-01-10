@@ -7,7 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/theme.css">
     <script
       async
       crossorigin="anonymous"
@@ -16,39 +17,43 @@
       type="text/javascript"
     ></script>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #09090b; color: #fafafa; }
-        .nav-link { color: #a1a1aa; transition: color 0.2s; }
-        .nav-link:hover { color: #ffffff; }
-        .btn-primary { background-color: #ffffff; color: #000000; transition: all 0.2s; }
-        .btn-primary:hover { background-color: #e4e4e7; transform: translateY(-1px); }
-        .btn-secondary { background-color: #18181b; border: 1px solid #27272a; color: #fafafa; transition: all 0.2s; }
-        .btn-secondary:hover { background-color: #27272a; border-color: #3f3f46; }
-        .card { background-color: #09090b; border: 1px solid #18181b; border-radius: 0.75rem; transition: border-color 0.2s; }
-        .card:hover { border-color: #27272a; }
-        .playground-card { background-color: #09090b; border: 1px solid #27272a; border-radius: 1rem; overflow: hidden; }
-        .chat-msg-user { background-color: #18181b; border: 1px solid #27272a; }
-        .chat-msg-ai { background-color: #09090b; border: 1px solid #18181b; }
-        #auth-overlay { background-color: rgba(9, 9, 11, 0.8); backdrop-blur: 4px; }
+        body { background-color: var(--ddlc-cream); color: var(--ddlc-text); font-family: 'Nunito', sans-serif; }
+        .hero-section { 
+            background-image: url('/landing_bg.png'); 
+            background-size: cover;
+            background-position: center;
+        }
+        #auth-overlay { background-color: rgba(255, 250, 240, 0.8); backdrop-blur: 4px; }
+        .playground-card { background-color: var(--ddlc-pink-light); border: 4px solid var(--ddlc-border); border-radius: 1.5rem; overflow: hidden; box-shadow: 10px 10px 0 var(--ddlc-shadow); opacity: 0.95; }
+        .chat-msg-user { background-color: var(--ddlc-blue); border: 2px solid #81d4fa; }
+        .chat-msg-ai { background-color: var(--ddlc-pink-light); border: 2px solid var(--ddlc-border); }
     </style>
 </head>
-<body class="selection:bg-indigo-500/30">
-    <nav class="border-b border-zinc-800 bg-zinc-950/50 backdrop-blur-md sticky top-0 z-50">
+<body class="selection:bg-[#ffb7c5]/30">
+    <nav class="border-b-4 border-[#ffb7c5]/20 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div class="container mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-8">
-                <a href="/" class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-                    <span class="text-lg font-bold tracking-tight">Collede</span>
+                <a href="/" class="flex items-center space-x-2 group relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#ffb7c5] group-hover:animate-pulse transition-all duration-300"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    <span class="text-xl font-black tracking-tight text-[#ffb7c5] relative">
+                        Collede
+                        <span class="absolute inset-0 text-blue-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-[2px] group-hover:translate-y-[-1px] transition-all pointer-events-none select-none glitch-text">Collede</span>
+                        <span class="absolute inset-0 text-purple-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-[-2px] group-hover:translate-y-[1px] transition-all pointer-events-none select-none glitch-text">Collede</span>
+                    </span>
+                    <!-- Nav Secret -->
+                    <span class="absolute -bottom-6 left-0 text-[8px] font-black text-[#ffb7c5] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">"I'm always watching you."</span>
                 </a>
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="/models" class="text-sm font-medium nav-link">Models</a>
-                    <a href="/docs" class="text-sm font-medium nav-link">Documentation</a>
-                    <a id="admin-link" href="/admin" class="text-sm font-medium nav-link hidden">Admin Portal</a>
+                    <a href="/dashboard" id="dashboard-link" class="text-sm font-bold nav-link hidden">Dashboard</a>
+                    <a href="/models" class="text-sm font-bold nav-link">Models</a>
+                    <a href="/docs" class="text-sm font-bold nav-link">Documentation</a>
+                    <a id="admin-link" href="/admin" class="text-sm font-bold nav-link hidden">Admin Portal</a>
                 </div>
             </div>
             <div class="flex items-center space-x-4">
                 <div id="auth-buttons" class="hidden flex items-center space-x-3">
-                    <button onclick="Clerk.openSignIn()" class="text-sm font-medium nav-link">Sign In</button>
-                    <button onclick="Clerk.openSignUp()" class="text-sm font-medium btn-primary px-4 py-2 rounded-lg">Get Started</button>
+                    <button onclick="Clerk.openSignIn()" class="text-sm font-bold nav-link">Sign In</button>
+                    <button onclick="Clerk.openSignUp()" class="text-sm font-bold btn-primary px-5 py-2 rounded-xl">Join the Club</button>
                 </div>
                 <div id="user-button"></div>
             </div>
@@ -57,105 +62,181 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="py-24 px-6 relative overflow-hidden">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
-                <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/10 blur-[120px] rounded-full"></div>
-                <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full"></div>
+        <section class="py-32 px-6 relative overflow-hidden hero-section">
+            <div class="absolute inset-0 bg-white/60 pointer-events-none"></div>
+            
+            <!-- Secret Marginalia -->
+            <div class="marginalia top-40 left-10 rotate-[-15deg] opacity-10 hover:opacity-100 transition-opacity hidden lg:block pointer-events-none text-[#ffb7c5] font-black text-lg">
+                "I'll be your favorite, right？" ✦
+            </div>
+            <div class="marginalia top-20 right-40 rotate-[5deg] opacity-5 hover:opacity-100 transition-opacity hidden lg:block pointer-events-none text-[#ffb7c5] font-black italic">
+                (Is someone watching us?)
+            </div>
+            <div class="marginalia bottom-40 left-20 rotate-[12deg] opacity-5 hover:opacity-100 transition-opacity hidden lg:block pointer-events-none text-[#ffb7c5] font-black">
+                Can you hear the music?
+            </div>
+            <div class="marginalia bottom-20 right-20 rotate-[10deg] opacity-10 hover:opacity-100 transition-opacity hidden lg:block pointer-events-none text-[#ffb7c5] font-black text-xl">
+                Just Monika.
+            </div>
+            <div class="marginalia top-60 right-10 rotate-[-8deg] opacity-0 hover:opacity-30 transition-opacity hidden lg:block pointer-events-none text-[#ffb7c5] font-bold text-sm italic">
+                "The air is getting a bit thin, don't you think?"
+            </div>
+            <div class="marginalia bottom-10 left-1/2 -translate-x-1/2 rotate-1 opacity-0 hover:opacity-20 transition-opacity hidden lg:block pointer-events-none text-[#ffb7c5] font-black">
+                D-O-N-T-L-E-A-V-E-M-E
             </div>
             
+            <!-- Hidden Glitch Trigger -->
+            <div id="glitch-trigger" class="absolute top-1/2 left-1/4 w-8 h-8 rounded-full bg-[#ffb7c5]/0 cursor-pointer hover:bg-[#ffb7c5]/20 transition-all z-20 flex items-center justify-center group" title="...？">
+                <span class="opacity-0 group-hover:opacity-100 text-[#ffb7c5] text-xs">⟡</span>
+            </div>
+
             <div class="container mx-auto text-center relative z-10">
-                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-zinc-800 bg-zinc-900/50 text-xs font-medium text-zinc-400 mb-8">
-                    <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
-                    <span>Now in Public Beta</span>
+                <div class="inline-flex items-center space-x-2 px-5 py-2 rounded-full border-2 border-[#ffb7c5]/40 bg-white/95 text-sm font-black text-[#ffb7c5] mb-10 shadow-xl hand-drawn">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffb7c5] opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-[#ffb7c5]"></span>
+                    </span>
+                    <span class="tracking-widest uppercase">The Club is Now Open</span>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-[1.1]">
-                    The Enterprise <br/><span class="text-indigo-500">AI Gateway</span>
+                <h1 class="text-6xl md:text-9xl font-black mb-10 tracking-tighter leading-[0.9] drop-shadow-[0_4px_4px_rgba(255,183,197,0.4)] text-gray-900">
+                    Every Day <br/>
+                    <span class="-rotate-2 inline-block hover:scale-105 transition-transform cursor-default">is a New Story！</span>
                 </h1>
-                <p class="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-                    A unified, OpenAI-compatible proxy for all your LLM needs. Manage models, control access, and monitor usage from a single dashboard.
+                <p class="text-gray-800 text-xl md:text-3xl max-w-3xl mx-auto mb-14 font-bold leading-tight drop-shadow-sm">
+                    One gateway. Endless stories. <br class="hidden md:block"/>
+                    Talk to your models like they're in the room with you. <span class="text-[#ffb7c5] drop-shadow-none">⟡</span>
                 </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button onclick="Clerk.openSignUp()" class="btn-primary px-8 py-3 rounded-xl font-semibold text-base w-full sm:w-auto shadow-lg shadow-white/5">Start Building Free</button>
-                    <a href="/docs" class="btn-secondary px-8 py-3 rounded-xl font-semibold text-base w-full sm:w-auto">View API Reference</a>
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-5 sm:space-y-0 sm:space-x-8">
+                    <button id="hero-cta" onclick="Clerk.openSignUp()" class="btn-primary px-12 py-5 rounded-2xl font-black text-xl w-full sm:w-auto shadow-2xl hand-drawn">Join the Club</button>
+                    <a href="/docs" class="btn-secondary px-12 py-5 rounded-2xl font-black text-xl w-full sm:w-auto shadow-2xl hand-drawn-alt">Read the Script</a>
                 </div>
             </div>
         </section>
 
         <!-- Features -->
-        <section class="py-24 border-t border-zinc-900 bg-zinc-950/20">
+        <section class="py-32 border-t-4 border-[#ffb7c5]/20 bg-[#ffb7c5]/5 scribble-bg relative">
+            <!-- Section Marginalia -->
+            <div class="marginalia top-10 right-10 rotate-[5deg] opacity-5 hover:opacity-100 transition-opacity hidden lg:block pointer-events-none text-[#ffb7c5] font-black italic">
+                (I hope you like reading...)
+            </div>
+            <div class="marginalia top-1/2 left-4 rotate-[-90deg] opacity-0 hover:opacity-20 transition-opacity hidden lg:block pointer-events-none text-[#ffb7c5] font-black text-[10px] tracking-[0.2em]">
+                (WHY ARE YOU STILL LOOKING AT THE FEATURES?)
+            </div>
+
             <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="card p-8">
-                        <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6 border border-indigo-500/20">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><path d="M12 2v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="M2 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="M12 22v-4"/><path d="m19.07 19.07-2.83-2.83"/><path d="M22 12h-4"/><path d="m19.07 4.93-2.83 2.83"/></svg>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="card p-10 hand-drawn hover:rotate-[-1deg] transition-transform relative group">
+                        <!-- Secret note behind card -->
+                        <div class="absolute -top-4 -right-4 opacity-0 group-hover:opacity-100 transition-opacity bg-white border-2 border-[#ffb7c5] p-2 rounded-lg rotate-12 text-[10px] font-black text-[#ffb7c5] z-0">
+                            READ ME！
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Unified API</h3>
-                        <p class="text-zinc-500 leading-relaxed">Swap providers without changing a single line of your application code. 100% OpenAI compatible.</p>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-[#ffb7c5]/10 rounded-2xl flex items-center justify-center mb-8 border-2 border-[#ffb7c5]/20 shadow-inner">
+                                <span class="text-3xl text-[#ffb7c5]">！</span>
+                            </div>
+                            <h3 class="text-3xl font-black mb-4 text-gray-900">The Master Script</h3>
+                            <p class="text-gray-800 text-lg leading-relaxed font-bold">One endpoint for every model. Swap providers instantly with 100% OpenAI compatibility—your tools just work. <span class="text-[#ffb7c5]">✦</span></p>
+                        </div>
                     </div>
-                    <div class="card p-8">
-                        <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6 border border-indigo-500/20">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    <div class="card p-10 translate-y-6 hand-drawn-alt hover:rotate-[1deg] transition-transform relative group">
+                        <div class="absolute -bottom-4 -left-4 opacity-0 group-hover:opacity-100 transition-opacity bg-white border-2 border-blue-200 p-2 rounded-lg -rotate-12 text-[10px] font-black text-blue-400 z-0">
+                            DON'T FORGET
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Granular Access</h3>
-                        <p class="text-zinc-500 leading-relaxed">Secure your API keys and manage model permissions for different environments or team members.</p>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-8 border-2 border-blue-200 shadow-inner">
+                                <span class="text-3xl text-blue-500">⧈</span>
+                            </div>
+                            <h3 class="text-3xl font-black mb-4 text-gray-900">Whispered Secrets</h3>
+                            <p class="text-gray-800 text-lg leading-relaxed font-bold">Secure proxying that protects your keys. Enjoy enterprise-grade privacy for your prompts and total usage visibility. <span class="text-blue-400">⟡</span></p>
+                        </div>
                     </div>
-                    <div class="card p-8">
-                        <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6 border border-indigo-500/20">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    <div class="card p-10 hand-drawn hover:rotate-[-2deg] transition-transform relative group">
+                        <div class="absolute top-1/2 -right-8 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white border-2 border-purple-200 p-2 rounded-lg rotate-90 text-[10px] font-black text-purple-400 z-0">
+                            WAIT FOR ME
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Model Management</h3>
-                        <p class="text-zinc-500 leading-relaxed">Toggle models on and off with one click. Automatically sync with upstream providers.</p>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-8 border-2 border-purple-200 shadow-inner">
+                                <span class="text-3xl text-purple-500">⟡</span>
+                            </div>
+                            <h3 class="text-3xl font-black mb-4 text-gray-900">Eternal Echoes</h3>
+                            <p class="text-gray-800 text-lg leading-relaxed font-bold">Reliable, high-speed access to the best AI models. No more downtime or rate limit headaches—just pure performance. <span class="text-purple-400">！</span></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Playground -->
-        <section class="py-24">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-bold mb-4">Interactive Playground</h2>
-                    <p class="text-zinc-500">Test your gateway configuration in real-time before deploying.</p>
+        <!-- The Clubroom Test Section -->
+        <section id="clubroom-test" class="py-32 bg-[#ffb7c5]/10 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--ddlc-pink-light)_0%,_transparent_70%)] opacity-50"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <h2 class="text-5xl font-black mb-6 tracking-tighter text-center">The Clubroom Test</h2>
+                <p class="text-[#ffb7c5] text-xl font-bold italic mb-12 text-center">"I'm so glad you could make it to the club today！" <span class="text-[#ffb7c5]">⟡</span></p>
+                <div class="marginalia top-0 right-1/4 rotate-[-2deg] opacity-0 hover:opacity-40 transition-opacity hidden lg:block pointer-events-none text-[#ffb7c5] font-black italic text-xs">
+                    (I'm waiting for you to say something...)
                 </div>
-
-                <div class="max-w-4xl mx-auto playground-card relative group">
+                
+                <div class="playground-card max-w-4xl mx-auto flex flex-col md:flex-row hand-drawn relative group shadow-2xl bg-white/80 backdrop-blur-sm border-4 border-[#ffb7c5]/30">
                     <!-- Auth Overlay -->
-                    <div id="auth-overlay" class="absolute inset-0 z-40 flex flex-col items-center justify-center space-y-6 text-center px-6">
-                        <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-400"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    <div id="auth-overlay" class="absolute inset-0 z-40 flex flex-col items-center justify-center space-y-8 text-center px-6">
+                        <div class="w-24 h-24 bg-[#ffb7c5]/10 rounded-[2.5rem] flex items-center justify-center border-4 border-[#ffb7c5]/20 shadow-xl rotate-3">
+                            <span class="text-4xl">✦</span>
                         </div>
-                        <h3 class="text-xl font-bold">Sign in to test playground</h3>
-                        <p class="text-zinc-500 max-w-xs">You need to be logged in to use the gateway playground and test your active models.</p>
-                        <button onclick="Clerk.openSignIn()" class="btn-primary px-6 py-2 rounded-lg font-medium">Sign In Now</button>
+                        <div>
+                            <h3 class="text-4xl font-black mb-2">Knock Knock！</h3>
+                            <p class="text-gray-800 text-lg font-bold">You need to join the club to use the playground！</p>
+                        </div>
+                        <button onclick="Clerk.openSignIn()" class="btn-primary px-12 py-4 rounded-2xl font-black text-xl shadow-xl hand-drawn">Sign In Now</button>
                     </div>
 
-                    <div class="border-b border-zinc-800 bg-zinc-900/50 p-4 flex items-center justify-between">
-                        <div class="flex items-center space-x-2">
-                            <div class="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50"></div>
-                            <span class="ml-4 text-xs font-mono text-zinc-500">v1 / Chat Playground</span>
+                    <!-- Left Sidebar -->
+                    <div class="w-full md:w-64 border-r-4 border-[#ffb7c5]/20 bg-[#ffb7c5]/5 p-8">
+                        <div class="flex flex-col items-center mb-10">
+                            <div class="w-24 h-24 bg-[#ffb7c5]/10 rounded-[2.5rem] flex items-center justify-center border-4 border-[#ffb7c5]/20 shadow-xl rotate-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ffb7c5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </div>
+                            <span class="mt-4 font-black text-[#ffb7c5] text-lg">Club Member</span>
                         </div>
-                        <select id="modelSelect" class="bg-zinc-950 border border-zinc-800 rounded px-3 py-1.5 text-xs outline-none focus:border-indigo-500 transition text-zinc-300">
-                            <option value="">Loading models...</option>
-                        </select>
+                        
+                        <div class="space-y-6">
+                            <label class="block">
+                                <span class="text-xs font-black text-[#ffb7c5] uppercase tracking-widest mb-3 block">Voice Selection</span>
+                                <select id="modelSelect" class="w-full bg-white border-2 border-[#ffb7c5]/20 rounded-xl px-4 py-3 text-sm font-black text-[#ffb7c5] outline-none focus:border-[#ffb7c5] transition shadow-sm">
+                                    <option value="">Loading models...</option>
+                                </select>
+                            </label>
+                        </div>
                     </div>
 
-                    <div id="chatHistory" class="h-[400px] overflow-y-auto p-6 space-y-4 bg-[#09090b]">
+                    <!-- Chat Area -->
+                    <div class="flex-1 flex flex-col bg-white">
+                        <div class="border-b-4 border-[#ffb7c5]/20 bg-[#ffb7c5]/5 p-6 flex items-center justify-between relative group">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-3.5 h-3.5 rounded-full bg-[#ffb7c5]"></div>
+                                <span class="text-sm font-black text-[#ffb7c5] tracking-tight">Active Session</span>
+                            </div>
+                            <!-- Chat Area Secret -->
+                            <span class="absolute right-6 top-1/2 -translate-y-1/2 text-[10px] font-black text-[#ffb7c5] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none italic">
+                                "I can see everything you type."
+                            </span>
+                        </div>
+                        
+                        <div id="chatHistory" class="h-[500px] overflow-y-auto p-8 space-y-6 bg-[#ffb7c5]/5">
                         <div class="flex justify-start">
-                            <div class="chat-msg-ai rounded-2xl rounded-tl-none p-4 max-w-[85%]">
-                                <p class="text-xs font-bold text-indigo-500 uppercase mb-1 tracking-wider">Assistant</p>
-                                <p class="text-sm text-zinc-300">Welcome to the Collede Playground. Once configured, you can test any active model here.</p>
+                            <div class="chat-msg-ai rounded-3xl rounded-tl-none p-6 max-w-[85%] shadow-sm">
+                                <p class="text-[10px] font-black text-[#ffb7c5] uppercase mb-2 tracking-widest">Club President</p>
+                                <p class="text-gray-700 font-medium leading-relaxed">Welcome to the Collede Clubroom! Once you've set up your gateway, we can chat about anything you like. I'm so excited to see what you'll write!</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="p-4 border-t border-zinc-800 bg-zinc-900/30">
-                        <form id="chatForm" class="flex items-center space-x-3">
-                            <input type="text" id="chatInput" placeholder="Type a message..." 
-                                class="flex-1 bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 transition">
-                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-500 text-white p-3 rounded-xl transition shadow-lg shadow-indigo-900/20">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                    <!-- Chat Input -->
+                    <div class="p-6 border-t-4 border-[#ffb7c5]/20 bg-[#ffb7c5]/5">
+                        <form id="chatForm" class="flex items-center space-x-4">
+                            <input type="text" id="chatInput" placeholder="Write a message to the club..." 
+                                class="flex-1 bg-white border-4 border-[#ffb7c5]/20 rounded-2xl px-6 py-4 text-gray-700 font-medium focus:outline-none focus:border-[#ffb7c5] transition shadow-inner placeholder:text-[#ffb7c5]/30">
+                            <button type="submit" class="bg-[#ffb7c5] hover:bg-[#ffaab9] text-white p-4 rounded-2xl transition shadow-lg shadow-[#ffb7c5]/10 flex-shrink-0 hover:scale-105 active:scale-95 transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
                             </button>
                         </form>
                     </div>
@@ -164,23 +245,40 @@
         </section>
     </main>
 
-    <footer class="py-12 border-t border-zinc-900">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-zinc-500 text-sm">
-            <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-                <span class="font-bold text-white">Collede</span>
-                <span>&copy; 2026. All rights reserved.</span>
+    <footer class="py-16 border-t-4 border-[#ffb7c5]/20 bg-white relative">
+        <!-- Hidden Poem Easter Egg -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-auto cursor-help pb-4">
+            <div class="bg-white border-2 border-[#ffb7c5]/30 p-4 rounded-xl shadow-xl hand-drawn max-w-xs text-center">
+                <p class="text-[10px] font-black text-[#ffb7c5] uppercase mb-2 tracking-widest italic">A Special Poem</p>
+                <p class="text-xs text-gray-700 font-bold leading-relaxed">
+                    The ink flows down into a dark puddle.<br/>
+                    Just move your hand - write the way into his heart!<br/>
+                    But in this world of infinite choices...<br/>
+                    <span class="text-[#ffb7c5]">What will it take just to find that special day?</span>
+                </p>
             </div>
-            <div class="flex items-center space-x-6">
-                <a href="#" class="hover:text-white transition">Privacy</a>
-                <a href="#" class="hover:text-white transition">Terms</a>
-                <a href="https://github.com" class="hover:text-white transition">GitHub</a>
+        </div>
+
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-gray-400 font-bold">
+            <div class="flex items-center space-x-3 mb-6 md:mb-0 group relative">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-[#ffb7c5]"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                <span class="text-xl text-[#ffb7c5] font-black">Collede</span>
+                <span class="text-sm">&copy; 2026 Literature Club.</span>
+                <!-- Footer Secret -->
+                <span class="absolute -bottom-4 left-0 text-[9px] font-black text-[#ffb7c5] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap italic">
+                    "You're not planning on leaving, are you?"
+                </span>
+            </div>
+            <div class="flex items-center space-x-10 text-gray-500 font-black">
+                <a href="#" class="hover:text-[#ffb7c5] transition-colors">Privacy</a>
+                <a href="#" class="hover:text-[#ffb7c5] transition-colors">Terms</a>
+                <a href="https://github.com" class="hover:text-[#ffb7c5] transition-colors">GitHub</a>
             </div>
         </div>
     </footer>
 
     <script>
-        const ADMIN_EMAIL = 'keyamuha@gmail.com';
+        const ADMIN_EMAILS = ['keyamuha@gmail.com', 'fricker2025@gmail.com'];
 
         window.addEventListener('load', async function () {
             await Clerk.load();
@@ -189,15 +287,29 @@
             const authButtons = document.getElementById('auth-buttons');
             const authOverlay = document.getElementById('auth-overlay');
             const adminLink = document.getElementById('admin-link');
+            const dashboardLink = document.getElementById('dashboard-link');
+            const heroCta = document.getElementById('hero-cta');
+
+            // Secret Console Message
+            console.log("%c✦ Welcome to the Literature Club! ✦", "color: #ffb7c5; font-size: 20px; font-weight: bold; text-shadow: 2px 2px #ffe4e1;");
+            console.log("%c\"There's no happiness in the clubroom... unless you're here.\"", "color: #ffb7c5; font-style: italic; font-weight: bold;");
+            console.log("%cTry searching for the 'hidden' poem in the guidebook... ⟡", "color: #ffb7c5; font-weight: bold;");
+            console.log("%c\n%cNote from Monika:%c \"I'm so glad we have this time together. Just the two of us.\"", "color: #9ca3af;", "color: #ffb7c5; font-weight: bold;", "color: #ffb7c5; italic;");
 
             if (Clerk.user) {
                 Clerk.mountUserButton(userButtonDiv);
                 authButtons.classList.add('hidden');
                 authOverlay.classList.add('hidden');
+                dashboardLink.classList.remove('hidden');
+
+                if (heroCta) {
+                    heroCta.innerText = 'Dashboard';
+                    heroCta.onclick = () => window.location.href = '/dashboard';
+                }
                 
                 // Show admin link if user is admin
-                const email = Clerk.user.primaryEmailAddress.emailAddress;
-                if (email === ADMIN_EMAIL) {
+                const email = Clerk.user.primaryEmailAddress.emailAddress.toLowerCase();
+                if (ADMIN_EMAILS.includes(email)) {
                     adminLink.classList.remove('hidden');
                 }
                 
@@ -205,6 +317,30 @@
             } else {
                 authButtons.classList.remove('hidden');
                 authOverlay.classList.remove('hidden');
+            }
+
+            // Secret Hero Hover
+            const heroTitle = document.querySelector('h1');
+            if (heroTitle) {
+                heroTitle.addEventListener('mouseenter', () => {
+                    const originalText = heroTitle.innerHTML;
+                    if (Math.random() > 0.8) {
+                        heroTitle.classList.add('animate-pulse');
+                        setTimeout(() => heroTitle.classList.remove('animate-pulse'), 500);
+                    }
+                });
+            }
+
+            // Glitch Trigger Logic
+            const trigger = document.getElementById('glitch-trigger');
+            if (trigger) {
+                trigger.onclick = () => {
+                    document.body.classList.add('glitch-active');
+                    console.warn("E̷r̶r̴o̷r̴:̷ ̷T̷h̷e̷ ̷c̷l̷u̷b̷ ̷i̷s̷ ̷u̵n̶s̴t̵a̴b̵l̵e̵.̷");
+                    setTimeout(() => {
+                        document.body.classList.remove('glitch-active');
+                    }, 2000);
+                };
             }
 
             function initPlayground() {
@@ -233,10 +369,14 @@
                 function appendMessage(role, content) {
                     const div = document.createElement('div');
                     div.className = `flex ${role === 'user' ? 'justify-end' : 'justify-start'}`;
+                    const bgClass = role === 'user' ? 'bg-blue-50 border-blue-100' : 'bg-[#ffb7c5]/10 border-[#ffb7c5]/20';
+                    const textClass = role === 'user' ? 'text-blue-700' : 'text-[#ffb7c5]';
+                    const label = role === 'user' ? 'You' : 'Club Member';
+                    
                     div.innerHTML = `
-                        <div class="${role === 'user' ? 'chat-msg-user' : 'chat-msg-ai'} rounded-2xl p-4 max-w-[85%]">
-                            <p class="text-[10px] font-bold ${role === 'user' ? 'text-zinc-400' : 'text-indigo-500'} uppercase mb-1 tracking-wider">${role === 'user' ? 'You' : 'Assistant'}</p>
-                            <p class="text-sm text-zinc-300">${content}</p>
+                        <div class="${bgClass} border-2 rounded-2xl p-4 max-w-[85%] shadow-sm hand-drawn">
+                            <p class="text-[10px] font-black ${textClass} uppercase mb-1 tracking-widest">${label}</p>
+                            <p class="text-gray-700 font-bold">${content}</p>
                         </div>
                     `;
                     chatHistory.appendChild(div);

@@ -1,58 +1,66 @@
-const fs = require('fs-extra');
-const path = require('path');
+const { clerkClient } = require('@clerk/clerk-sdk-node');
 
-const DATA_DIR = path.join(__dirname, '..', 'data');
-const USAGE_FILE = path.join(DATA_DIR, 'usage.json');
 const DAILY_LIMIT = 13000;
-
-async function getUsageData() {
-  try {
-    if (await fs.pathExists(USAGE_FILE)) {
-      return await fs.readJson(USAGE_FILE);
-    }
-  } catch (error) {
-    console.error('Error reading usage data:', error);
-  }
-  return {};
-}
-
-async function saveUsageData(data) {
-  try {
-    await fs.ensureDir(DATA_DIR);
-    await fs.writeJson(USAGE_FILE, data, { spaces: 2 });
-  } catch (error) {
-    console.error('Error saving usage data:', error);
-  }
-}
 
 function getTodayStr() {
   return new Date().toISOString().split('T')[0];
 }
 
 async function checkAndIncrementUsage(userId) {
-  const today = getTodayStr();
-  const usageData = await getUsageData();
+  if (!userId) return { allowed: false, current: 0, limit: DAILY_LIMIT };
 
-  if (!usageData[today]) {
-    usageData[today] = {};
+  try {
+    const today = getTodayStr();
+    const user = await clerkClient.users.getUser(userId);
+    
+    const usage = user.privateMetadata?.usage || {};
+    const currentCount = usage[today] || 0;
+
+    if (currentCount >= DAILY_LIMIT) {
+      return { allowed: false, current: currentCount, limit: DAILY_LIMIT };
+    }
+
+    const newCount = currentCount + 1;
+    
+    // Update only today's usage, and maybe clean up old days to stay under 8KB limit
+    const updatedUsage = { [today]: newCount };
+    
+    // Optional: Keep only last 7 days of usage history to save space
+    const dates = Object.keys(usage).sort().reverse();
+    for (let i = 0; i < Math.min(dates.length, 7); i++) {
+      const date = dates[i];
+      if (date !== today) {
+        updatedUsage[date] = usage[date];
+      }
+    }
+
+    await clerkClient.users.updateUser(userId, {
+      privateMetadata: {
+        ...user.privateMetadata,
+        usage: updatedUsage
+      }
+    });
+
+    return { allowed: true, current: newCount, limit: DAILY_LIMIT };
+  } catch (error) {
+    console.error(`Error tracking usage for ${userId}:`, error);
+    // In case of Clerk error, we'll allow the request but log it
+    // This prevents blocking users if Clerk is having issues
+    return { allowed: true, current: 0, limit: DAILY_LIMIT };
   }
-
-  const currentCount = usageData[today][userId] || 0;
-
-  if (currentCount >= DAILY_LIMIT) {
-    return { allowed: false, current: currentCount, limit: DAILY_LIMIT };
-  }
-
-  usageData[today][userId] = currentCount + 1;
-  await saveUsageData(usageData);
-
-  return { allowed: true, current: usageData[today][userId], limit: DAILY_LIMIT };
 }
 
 async function getUserUsage(userId) {
-  const today = getTodayStr();
-  const usageData = await getUsageData();
-  return usageData[today]?.[userId] || 0;
+  if (!userId) return 0;
+  
+  try {
+    const today = getTodayStr();
+    const user = await clerkClient.users.getUser(userId);
+    return user.privateMetadata?.usage?.[today] || 0;
+  } catch (error) {
+    console.error(`Error fetching usage for ${userId}:`, error);
+    return 0;
+  }
 }
 
 module.exports = {

@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Models | Collede AI Gateway</title>
+    <title>Club Library | Collede</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/theme.css">
     <script
       async
       crossorigin="anonymous"
@@ -16,67 +17,156 @@
       type="text/javascript"
     ></script>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #09090b; color: #fafafa; }
-        .nav-link { color: #a1a1aa; transition: color 0.2s; }
-        .nav-link:hover { color: #ffffff; }
-        .card { background-color: #18181b; border: 1px solid #27272a; border-radius: 0.75rem; }
-        .status-badge { font-size: 0.7rem; font-weight: 600; padding: 0.125rem 0.5rem; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.025em; }
-        .status-active { background-color: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
+        :root {
+            --ddlc-pink: #ffb7c5;
+            --ddlc-pink-light: #fce4ec;
+            --ddlc-pink-dark: #f06292;
+            --ddlc-blue: #b3e5fc;
+            --ddlc-purple: #e1bee7;
+            --ddlc-cream: #fffaf0;
+            --ddlc-white: #ffffff;
+            --ddlc-text: #4a4a4a;
+            --ddlc-text-light: #7a7a7a;
+            --ddlc-border: #ffd1dc;
+        }
+
+        body { 
+            font-family: 'Quicksand', sans-serif; 
+            background-color: var(--ddlc-cream); 
+            color: var(--ddlc-text);
+            background-image: 
+                radial-gradient(var(--ddlc-pink-light) 1px, transparent 1px),
+                radial-gradient(var(--ddlc-pink-light) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+
+        h1, h2, h3, .font-heading { font-family: 'Nunito', sans-serif; }
+
+        .nav-link { 
+            color: var(--ddlc-text-light); 
+            transition: all 0.2s;
+            font-weight: 700;
+        }
+        .nav-link:hover { 
+            color: var(--ddlc-pink-dark); 
+            transform: translateY(-1px);
+        }
+
+        .card { 
+            background: var(--ddlc-white); 
+            border: 3px solid var(--ddlc-pink-light); 
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 0 var(--ddlc-pink-light);
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--ddlc-pink);
+            box-shadow: 0 12px 0 var(--ddlc-pink);
+        }
+
+        .status-badge { 
+            font-size: 0.75rem; 
+            font-weight: 800; 
+            padding: 0.25rem 0.75rem; 
+            border-radius: 9999px; 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em; 
+        }
+        .status-active { 
+            background-color: #e8f5e9; 
+            color: #2e7d32; 
+            border: 2px solid #c8e6c9; 
+        }
+
+        .btn-primary {
+            background-color: var(--ddlc-pink);
+            color: white;
+            border: 3px solid var(--ddlc-pink-dark);
+            box-shadow: 0 4px 0 var(--ddlc-pink-dark);
+            transition: all 0.1s;
+        }
+        .btn-primary:hover {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 var(--ddlc-pink-dark);
+        }
+        .btn-primary:active {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
     </style>
 </head>
 <body>
-    <nav class="border-b border-zinc-800 bg-zinc-950/50 backdrop-blur-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-8">
-                <a href="/" class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-                    <span class="text-lg font-bold tracking-tight">Collede</span>
+    <nav class="border-b-4 border-[#ffb7c5]/20 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-12">
+                <a href="/" class="flex items-center space-x-3 group">
+                    <div class="bg-[#ffb7c5] p-2 rounded-xl group-hover:rotate-12 transition-transform shadow-lg shadow-[#ffb7c5]/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    </div>
+                    <span class="text-2xl font-black tracking-tight text-[#ffb7c5]">Collede</span>
                 </a>
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="/models" class="text-sm font-medium text-white">Models</a>
-                    <a href="/docs" class="text-sm font-medium nav-link">Documentation</a>
-                    <a id="admin-link" href="/admin" class="text-sm font-medium nav-link hidden">Admin Portal</a>
+                <div class="hidden md:flex items-center space-x-12">
+                    <a href="/dashboard" id="dashboard-link" class="text-sm font-bold nav-link hidden">Dashboard</a>
+                    <a href="/models" class="text-sm font-black text-[#ffb7c5] underline decoration-4 underline-offset-8">Club Library</a>
+                    <a href="/docs" class="text-sm font-bold nav-link">Literature Club</a>
+                    <a id="admin-link" href="/admin" class="text-sm font-bold nav-link hidden">Club President Portal</a>
                 </div>
             </div>
-            <div class="flex items-center space-x-4">
-                <div id="auth-buttons" class="hidden flex items-center space-x-3">
-                    <button onclick="Clerk.openSignIn()" class="text-sm font-medium nav-link">Sign In</button>
-                    <button onclick="Clerk.openSignUp()" class="text-sm font-medium bg-white text-black px-4 py-2 rounded-lg hover:bg-zinc-200 transition">Get Started</button>
+            <div class="flex items-center space-x-6">
+                <div id="auth-buttons" class="hidden flex items-center space-x-4">
+                    <button onclick="Clerk.openSignIn()" class="text-sm font-bold nav-link">Join the Club</button>
+                    <button onclick="Clerk.openSignUp()" class="btn-primary px-6 py-2.5 rounded-xl font-black text-sm">Sign Up</button>
                 </div>
                 <div id="user-button"></div>
             </div>
         </div>
     </nav>
 
-    <main class="container mx-auto px-6 py-12">
+    <main class="container mx-auto px-6 py-16 relative">
+        <!-- Marginalia easter eggs -->
+        <div class="marginalia top-32 -left-8 rotate-[-12deg] hidden xl:block">
+            Found any favorites yet？ <span class="text-[#ffb7c5]">✦</span>
+        </div>
+        <div class="marginalia bottom-48 -right-12 rotate-[8deg] hidden xl:block">
+            "Every model is a new friend！" ⟡
+        </div>
+
         <div class="max-w-4xl mx-auto">
-            <header class="mb-12">
-                <h1 class="text-4xl font-extrabold mb-4">Active Models</h1>
-                <p class="text-zinc-400 text-lg">Browse all AI models currently available through the Collede Gateway. These models are synced directly from the configured providers.</p>
+            <header class="mb-16 text-center">
+                <h1 class="text-6xl font-black mb-6 tracking-tighter text-[#ffb7c5]">The Club Library</h1>
+                <p class="text-xl font-bold max-w-2xl mx-auto leading-relaxed text-[#ffb7c5]">
+                    Browse all the AI friends currently visiting the Collede Literature Club! <span class="marker-highlight">These models are here to help you write your next masterpiece.</span> <span class="text-[#ffb7c5]">⧈</span>
+                </p>
             </header>
 
-            <div id="loading-state" class="py-20 flex flex-col items-center justify-center">
-                <svg class="animate-spin h-8 w-8 text-indigo-500 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                <p class="text-zinc-500">Fetching available models...</p>
+            <div id="loading-state" class="text-center py-20">
+                <div class="w-24 h-24 bg-[#ffb7c5]/20 rounded-[2.5rem] flex items-center justify-center border-4 border-[#ffb7c5] animate-bounce mb-8 shadow-xl hand-drawn mx-auto">
+                    <span class="text-4xl text-[#ffb7c5]">✦</span>
+                </div>
+                <p class="text-[#ffb7c5] font-black text-2xl italic tracking-widest">Waking up the club members...</p>
             </div>
 
-            <div id="models-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4 hidden">
+            <div id="models-grid" class="grid grid-cols-1 md:grid-cols-2 gap-10 hidden">
                 <!-- Models will be injected here -->
             </div>
 
-            <div id="empty-state" class="hidden py-20 text-center card p-12">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-zinc-700 mb-4"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
-                <h3 class="text-xl font-semibold mb-2">No models available</h3>
-                <p class="text-zinc-500 max-w-sm mx-auto">The gateway administrator hasn't configured any models yet. Please check back later or contact support.</p>
+            <!-- Empty State -->
+            <div id="empty-state" class="hidden text-center py-20">
+                <div class="bg-[#ffb7c5]/5 w-24 h-24 rounded-[2rem] flex items-center justify-center mx-auto mb-8 border-4 border-[#ffb7c5]/30 shadow-inner">
+                    <span class="text-4xl text-[#ffb7c5]">？</span>
+                </div>
+                <p class="text-2xl font-bold mb-4">"The Club President hasn't invited any models to the library yet. Please check back later, okay？" <span class="text-[#ffb7c5]">⟡</span></p>
+                <div class="text-[#ffb7c5] text-sm italic font-bold">
+                    (Try refreshing or coming back when the club is in session)
+                </div>
             </div>
         </div>
     </main>
 
     <script>
-        const ADMIN_EMAIL = 'keyamuha@gmail.com';
+        const ADMIN_EMAILS = ['keyamuha@gmail.com', 'fricker2025@gmail.com'];
 
         window.addEventListener('load', async function () {
             await Clerk.load();
@@ -90,22 +180,26 @@
                 authButtons.classList.add('hidden');
                 
                 // Show admin link if user is admin
-                const email = Clerk.user.primaryEmailAddress.emailAddress;
-                if (email === ADMIN_EMAIL) {
+                const email = Clerk.user.primaryEmailAddress.emailAddress.toLowerCase();
+                if (ADMIN_EMAILS.includes(email)) {
                     adminLink.classList.remove('hidden');
                 }
+
+                // Show dashboard link
+                const dashboardLink = document.getElementById('dashboard-link');
+                if (dashboardLink) dashboardLink.classList.remove('hidden');
                 
                 fetchModels();
             } else {
                 authButtons.classList.remove('hidden');
                 document.getElementById('loading-state').innerHTML = `
-                    <div class="text-center card p-12 w-full max-w-md mx-auto">
-                        <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 mx-auto mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-400"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    <div class="card p-12 text-center border-dashed border-4 border-[#ffb7c5]/50 bg-white/50 hover:bg-white transition-colors duration-500">
+                        <div class="w-20 h-20 bg-[#ffb7c5]/20 rounded-3xl flex items-center justify-center border-4 border-[#ffb7c5] mx-auto mb-8 shadow-inner">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffb7c5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">Sign in to view models</h3>
-                        <p class="text-zinc-500 mb-8 text-sm">You need an active session to browse available models and access the API.</p>
-                        <button onclick="Clerk.openSignIn()" class="bg-white text-black px-8 py-3 rounded-xl font-semibold hover:bg-zinc-200 transition w-full shadow-lg shadow-white/5">Sign In Now</button>
+                        <h3 class="text-2xl font-black mb-3 text-[#ffb7c5]">Join the Club!</h3>
+                        <p class="text-lg font-bold italic mb-8">Sign in to start your own story with our models.</p>
+                        <button onclick="Clerk.openSignIn()" class="btn-primary px-8 py-3 rounded-2xl font-black text-lg">Sign In</button>
                     </div>
                 `;
             }
@@ -121,7 +215,7 @@
                 renderModels(data.data || []);
             } catch (error) {
                 console.error('Error:', error);
-                document.getElementById('loading-state').innerHTML = '<p class="text-red-400">Failed to load models. Please try again.</p>';
+                document.getElementById('loading-state').innerHTML = '<p class="text-[#ffb7c5] font-bold">Oh no! Something went wrong while loading the models.</p>';
             }
         }
 
@@ -138,22 +232,35 @@
                 return;
             }
 
-            grid.innerHTML = models.map(model => `
-                <div class="card p-6 flex flex-col justify-between hover:border-zinc-700 transition group">
+            grid.innerHTML = models.map((model, index) => {
+                const rotation = index % 2 === 0 ? 'rotate-[-1deg]' : 'rotate-[1deg]';
+                const createdDate = model.created ? new Date(model.created * 1000).toLocaleDateString() : 'Recently';
+                const providerName = model.providerName || 'Literature Club';
+                
+                return `
+                <div class="card p-8 flex flex-col justify-between group hand-drawn ${rotation} hover:rotate-0 transition-transform shadow-xl">
                     <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="status-badge status-active">Active</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-600 group-hover:text-zinc-400 transition"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="status-badge status-active shadow-sm">Visiting</span>
+                            <div class="p-3 rounded-2xl bg-[#ffb7c5]/10 text-[#ffb7c5] group-hover:bg-[#ffb7c5] group-hover:text-white transition-all duration-300 shadow-inner">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </div>
                         </div>
-                        <h3 class="text-lg font-bold font-mono mb-1 truncate">${model.id}</h3>
-                        <p class="text-zinc-500 text-sm">Provider: ${model.owned_by || 'Unknown'}</p>
+                        <div>
+                            <h3 class="text-xl font-black mb-1 group-hover:text-[#ffb7c5] transition-colors">${model.id}</h3>
+                            <p class="text-[#ffb7c5] font-bold text-base flex items-center">
+                                <span class="mr-2">✦</span>
+                                ${providerName} Member
+                            </p>
+                        </div>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                        <span class="text-xs text-zinc-600">Created: ${new Date(model.created * 1000).toLocaleDateString()}</span>
-                        <code class="text-[10px] bg-zinc-900 px-2 py-1 rounded text-zinc-500 border border-zinc-800">v1/chat/completions</code>
+                    <div class="mt-8 pt-6 border-t-4 border-[#ffb7c5]/10 flex items-center justify-between">
+                        <span class="text-xs font-black text-[#ffb7c5] uppercase tracking-widest">Joined: ${createdDate}</span>
+                        <code class="text-[10px] font-black bg-[#ffb7c5]/5 px-4 py-2 rounded-xl text-[#ffb7c5] border-2 border-[#ffb7c5]/20 shadow-sm">v1/chat ⧈</code>
                     </div>
                 </div>
-            `).join('');
+                `;
+            }).join('');
 
             grid.classList.remove('hidden');
             emptyState.classList.add('hidden');
